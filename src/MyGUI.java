@@ -1,5 +1,5 @@
 public class MyGUI extends javax.swing.JFrame {
-    // TODO Create missing UI elements for button clicks
+    // TODO #7 Create missing UI elements for button clicks
     // Variables declaration - do not modify                     
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1_Settings;
