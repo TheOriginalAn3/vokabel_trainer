@@ -24,6 +24,8 @@ public class MyGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane_ToTranslate;
+
+    // TODO #3 This variables should be read and saved from/to a File
     private int intRightWords;
     private int intWrongWords;
     private boolean state_jRadioButton1_VoiceRecognition = false;
