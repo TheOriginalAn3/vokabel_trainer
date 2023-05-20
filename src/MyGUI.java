@@ -229,7 +229,7 @@ public class MyGUI extends javax.swing.JFrame {
         // English to German Toggle
         buttonGroup2.add(jRadioButton2_EngToGer);
         jRadioButton2_EngToGer.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jRadioButton2_EngToGer.setSelected(true); // set the default state of the toggle. // TODO Save/Read tarnslate mode to/from File @TheOriginalAn3
+        jRadioButton2_EngToGer.setSelected(true); // set the default state of the toggle. // TODO #5 Save/Read tarnslate mode to/from File @TheOriginalAn3
         jRadioButton2_EngToGer.setText("English -> German");
         jRadioButton2_EngToGer.setBackground(new java.awt.Color(0x262a2b)); // Set background color
         jRadioButton2_EngToGer.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
@@ -300,7 +300,7 @@ public class MyGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        // TODO #5 BUG: window resizes with the lenght of the word @TheOriginalAn3
+        // TODO #6 BUG: window resizes with the lenght of the word @TheOriginalAn3
         // Word Display Pane
         jPanel4.setBackground(new java.awt.Color(0x262a2b)); // Change pane color
 
