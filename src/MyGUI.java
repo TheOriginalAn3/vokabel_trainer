@@ -26,6 +26,7 @@ public class MyGUI extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane_ToTranslate;
     private int intRightWords;
     private int intWrongWords;
+    private boolean state_jRadioButton1_VoiceRecognition = false;
     // End of variables declaration       
 
     public MyGUI() {
@@ -170,6 +171,7 @@ public class MyGUI extends javax.swing.JFrame {
         jRadioButton1_VoiceRecognition.setText("Voice Recognition");
         jRadioButton1_VoiceRecognition.setToolTipText("!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
         jRadioButton1_VoiceRecognition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton1_VoiceRecognition.setSelected(state_jRadioButton1_VoiceRecognition);
         jRadioButton1_VoiceRecognition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1_VoiceRecognitionActionPerformed(evt);
@@ -362,20 +364,26 @@ public class MyGUI extends javax.swing.JFrame {
         this.setVisible(true);
     }// </editor-fold>                        
 
-    //Getters
+    // Getters
     public int getIntRightWords() {
         return intRightWords;
     }
     public int getIntWrongWords() {
         return intWrongWords;
     }
+    public boolean isSelected_jRadioButton1_VoiceRecognition() {
+        state_jRadioButton1_VoiceRecognition = jRadioButton1_VoiceRecognition.isSelected();
+        return state_jRadioButton1_VoiceRecognition;
+    }
 
-    //Setters
+    // Setters
     public void setIntRightWords(int intRightWords) {
         this.intRightWords = intRightWords;
+        jLabel_RightWords.setText(Integer.toString(intRightWords));
     }
     public void setIntWrongWords(int intWrongWords) {
         this.intWrongWords = intWrongWords;
+        jLabel_WrongWords.setText(Integer.toString(intWrongWords));
     }
 
 
@@ -394,5 +402,5 @@ public class MyGUI extends javax.swing.JFrame {
 
     private void jRadioButton3_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
-    }      
+    }
 }
