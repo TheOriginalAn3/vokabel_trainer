@@ -1,8 +1,33 @@
 public class MyGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MyGUI
-     */
+    // Variables declaration - do not modify                     
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1_Settings;
+    private javax.swing.JButton jButton2_Home;
+    private javax.swing.JButton jButton3_AddWord;
+    private javax.swing.JButton jButton4_RemEditWord;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel_RightWords;
+    private javax.swing.JLabel jLabel_WrongWords;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JRadioButton jRadioButton1_VoiceRecognition;
+    private javax.swing.JRadioButton jRadioButton2_EngToGer;
+    private javax.swing.JRadioButton jRadioButton3_GerToEng;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane jTextPane_ToTranslate;
+    private int intRightWords;
+    private int intWrongWords;
+    // End of variables declaration       
+
     public MyGUI() {
         initComponents();
     }
@@ -15,6 +40,9 @@ public class MyGUI extends javax.swing.JFrame {
     //@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
+
+        intRightWords = 134;
+        intWrongWords = 971;
 
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
@@ -82,7 +110,7 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel_RightWords.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
         jLabel_RightWords.setForeground(new java.awt.Color(0, 0, 0));
         jLabel_RightWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_RightWords.setText("165");
+        jLabel_RightWords.setText(Integer.toString(intRightWords));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -114,7 +142,7 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel_WrongWords.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
         jLabel_WrongWords.setForeground(new java.awt.Color(0, 0, 0));
         jLabel_WrongWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_WrongWords.setText("165");
+        jLabel_WrongWords.setText(Integer.toString(intWrongWords));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -142,18 +170,33 @@ public class MyGUI extends javax.swing.JFrame {
         jRadioButton1_VoiceRecognition.setText("Voice Recognition");
         jRadioButton1_VoiceRecognition.setToolTipText("!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
         jRadioButton1_VoiceRecognition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton1_VoiceRecognition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1_VoiceRecognitionActionPerformed(evt);
+            }
+        });
 
         jButton3_AddWord.setBackground(new java.awt.Color(134, 41, 190));
         jButton3_AddWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jButton3_AddWord.setForeground(new java.awt.Color(255, 255, 255));
         jButton3_AddWord.setText("Add a Word");
         jButton3_AddWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3_AddWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_AddWordActionPerformed(evt);
+            }
+        });
 
         jButton4_RemEditWord.setBackground(new java.awt.Color(134, 41, 190));
         jButton4_RemEditWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jButton4_RemEditWord.setForeground(new java.awt.Color(255, 255, 255));
         jButton4_RemEditWord.setText("Remove / Edit a Word");
         jButton4_RemEditWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4_RemEditWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_RemEditWordActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(jRadioButton2_EngToGer);
         jRadioButton2_EngToGer.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
@@ -319,6 +362,23 @@ public class MyGUI extends javax.swing.JFrame {
         this.setVisible(true);
     }// </editor-fold>                        
 
+    //Getters
+    public int getIntRightWords() {
+        return intRightWords;
+    }
+    public int getIntWrongWords() {
+        return intWrongWords;
+    }
+
+    //Setters
+    public void setIntRightWords(int intRightWords) {
+        this.intRightWords = intRightWords;
+    }
+    public void setIntWrongWords(int intWrongWords) {
+        this.intWrongWords = intWrongWords;
+    }
+
+
     // Event Handler Methods
     private void jButton1_SettingsActionPerformed(java.awt.event.ActionEvent evt) {                                         
         System.out.println("Settings button clickerd!");
@@ -334,31 +394,5 @@ public class MyGUI extends javax.swing.JFrame {
 
     private void jRadioButton3_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
-    }
-    
-    // Variables declaration - do not modify                     
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1_Settings;
-    private javax.swing.JButton jButton2_Home;
-    private javax.swing.JButton jButton3_AddWord;
-    private javax.swing.JButton jButton4_RemEditWord;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel_RightWords;
-    private javax.swing.JLabel jLabel_WrongWords;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1_VoiceRecognition;
-    private javax.swing.JRadioButton jRadioButton2_EngToGer;
-    private javax.swing.JRadioButton jRadioButton3_GerToEng;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextPane jTextPane_ToTranslate;
-    // End of variables declaration                   
+    }      
 }
