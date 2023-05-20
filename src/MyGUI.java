@@ -403,4 +403,16 @@ public class MyGUI extends javax.swing.JFrame {
     private void jRadioButton3_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
     }
+ 
+    private void jRadioButton1_VoiceRecognitionActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("Voice Recognition Selected: " + isSelected_jRadioButton1_VoiceRecognition());
+    }
+
+    private void jButton3_AddWordActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("Add Words button clicked!");
+    }
+
+    private void jButton4_RemEditWordActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("Remove / Edit Word button clicked!");
+    }
 }
