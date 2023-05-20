@@ -243,7 +243,7 @@ public class MyGUI extends javax.swing.JFrame {
         // German to English Toggle
         buttonGroup2.add(jRadioButton3_GerToEng);
         jRadioButton3_GerToEng.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jRadioButton2_EngToGer.setSelected(true); // set the default state of the toggle. // TODO Save/Read tarnslate mode to/from File @TheOriginalAn3
+        jRadioButton3_GerToEng.setSelected(false); // set the default state of the toggle. // TODO Save/Read tarnslate mode to/from File @TheOriginalAn3
         jRadioButton3_GerToEng.setText("German -> English");
         jRadioButton3_GerToEng.setBackground(new java.awt.Color(0x262a2b)); // Set background color
         jRadioButton3_GerToEng.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
