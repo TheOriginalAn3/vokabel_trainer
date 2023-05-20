@@ -30,6 +30,11 @@ public class MyGUI extends javax.swing.JFrame {
     private int intRightWords = 134;
     private int intWrongWords = 971;
     private boolean stateVocieRecognitionToggle = false; 
+
+    // TODO #4 Variables should be created for the UI Colors
+    /* 
+    Create Variables For Colors
+    */
     // End of variables declaration       
 
     public MyGUI() {
@@ -295,7 +300,7 @@ public class MyGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        // TODO BUG: window resizes with the lenght of the word @TheOriginalAn3
+        // TODO #5 BUG: window resizes with the lenght of the word @TheOriginalAn3
         // Word Display Pane
         jPanel4.setBackground(new java.awt.Color(0x262a2b)); // Change pane color
 
