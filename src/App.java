@@ -6,7 +6,7 @@ public class App {
         MyVars myVars = MyVars.getInstance();
 
         // Config constructor automatically calls MyVars constructor and creates MyVars object/instance if one dosn't already exist.
-        Config config = new Config();
+        Config config = Config.getInstance();
 
         // Load variables into memory
         config.load();
