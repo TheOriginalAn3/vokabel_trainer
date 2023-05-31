@@ -230,7 +230,7 @@ public class MyGUI extends javax.swing.JFrame {
         // English to German Toggle
         buttonGroup2.add(jRadioButton2_EngToGer);
         jRadioButton2_EngToGer.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jRadioButton2_EngToGer.setSelected(true); // set the default state of the toggle. // TODO #5 Save/Read tarnslate mode to/from File @TheOriginalAn3
+        jRadioButton2_EngToGer.setSelected(!myVars.isGerToEngSelected()); // Read the state of the Toggle and set it to its opposite.
         jRadioButton2_EngToGer.setText("English -> German");
         jRadioButton2_EngToGer.setBackground(new java.awt.Color(0x262a2b)); // Set background color
         jRadioButton2_EngToGer.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
@@ -244,7 +244,7 @@ public class MyGUI extends javax.swing.JFrame {
         // German to English Toggle
         buttonGroup2.add(jRadioButton3_GerToEng);
         jRadioButton3_GerToEng.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jRadioButton3_GerToEng.setSelected(false); // set the default state of the toggle. // TODO Save/Read tarnslate mode to/from File @TheOriginalAn3
+        jRadioButton3_GerToEng.setSelected(myVars.isGerToEngSelected()); // Read the state of the Toggle and set it.
         jRadioButton3_GerToEng.setText("German -> English");
         jRadioButton3_GerToEng.setBackground(new java.awt.Color(0x262a2b)); // Set background color
         jRadioButton3_GerToEng.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
@@ -429,16 +429,21 @@ public class MyGUI extends javax.swing.JFrame {
 
     private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {    
         System.out.println("EngToGer selected!");
-        myVars.setGerToEngSelected(false);                                          
+        myVars.setGerToEngSelected(false);       
+        config.save();                                   
     }
 
     private void jRadioButton3_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
         myVars.setGerToEngSelected(true);
+        config.save();
     }
  
     private void jRadioButton1_VoiceRecognitionActionPerformed(java.awt.event.ActionEvent evt) {
+        myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
         System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
+        config.save();
+
     }
 
     private void jButton3_AddWordActionPerformed(java.awt.event.ActionEvent evt) {
