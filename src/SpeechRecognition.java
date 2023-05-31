@@ -1,9 +1,12 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class SpeechRecognition {
     private static SpeechRecognition instance = null;
     private ProcessBuilder pb;
     private Process p;
+    private String transcription;
 
     // Trick I saw on TikTok (Singleton method to only allow one object of this class to exist)
     private SpeechRecognition() {
@@ -41,6 +44,34 @@ public class SpeechRecognition {
             e.printStackTrace();
             p.destroy();
         }
+    }
+
+    // TODO Change this to IPC using sockets
+    public String getTranscription() {
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while (!p.isAlive() || in.ready()) {
+                transcription = in.readLine();
+                if (transcription != null && (!transcription.equalsIgnoreCase("Google Speech Recognition could not understand audio")) || (!transcription.equalsIgnoreCase("Could not request results from Google Speech Recognition service"))) {
+                    System.out.println("Transcription: " + transcription);
+                    System.out.println("Returning Transcription...");
+                } else if (transcription.equalsIgnoreCase("Google Speech Recognition could not understand audio")) {
+                    System.out.println(transcription);
+                } else if (transcription.equalsIgnoreCase("Could not request results from Google Speech Recognition service")) {
+                    System.out.println(transcription);
+                } else {
+                    System.out.println("Unexpected Problem hass occured with the Recognizer!");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (transcription != null) {
+            return transcription; 
+        } else {
+            return "error";
+        }
+        
     }
 
 }
