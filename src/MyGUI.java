@@ -87,6 +87,7 @@ public class MyGUI extends javax.swing.JFrame {
         // Left Side Menu
         jPanel1.setBackground(new java.awt.Color(0x262a2b)); // Set jPanel1 (Left menu pannel) color to #262a2b
 
+        // TODO #12 Remove Settings Button
         // Settings Button
         jButton1_Settings.setBackground(new java.awt.Color(0x624d35)); // Set Settings button color to #624d35
         jButton1_Settings.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
@@ -99,6 +100,7 @@ public class MyGUI extends javax.swing.JFrame {
             }
         });
 
+        // TODO #13 Remove Home Button
         // Home Button
         jButton2_Home.setBackground(new java.awt.Color(0x624d35)); // Set home button color to #624d35
         jButton2_Home.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
@@ -195,7 +197,6 @@ public class MyGUI extends javax.swing.JFrame {
             }
         });
 
-
         // Add Word Button
         jButton3_AddWord.setBackground(new java.awt.Color(0x1f2223)); // Set panel color
         jButton3_AddWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
@@ -207,7 +208,6 @@ public class MyGUI extends javax.swing.JFrame {
                 jButton3_AddWordActionPerformed(evt);
             }
         });
-
 
         // Remove Edit Word Button
         jButton4_RemEditWord.setBackground(new java.awt.Color(0x1f2223)); // Set panel color
@@ -253,7 +253,7 @@ public class MyGUI extends javax.swing.JFrame {
                 jRadioButton3_EngToGerActionPerformed(evt);
             }
         });
-
+        
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -261,7 +261,7 @@ public class MyGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3_AddWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3_AddWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1_Settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -273,7 +273,7 @@ public class MyGUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,6 +294,7 @@ public class MyGUI extends javax.swing.JFrame {
                 .addComponent(jRadioButton3_GerToEng)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3_AddWord)
+                
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4_RemEditWord)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -350,6 +351,7 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Translation:");
 
+        // TODO #16 Get the text from input-field (jTextField1)
         // Translation Input Text Field
         jTextField1.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
@@ -427,6 +429,7 @@ public class MyGUI extends javax.swing.JFrame {
         System.out.println("Home button clicked!");
     }                                        
 
+    // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable
     private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {    
         System.out.println("EngToGer selected!");
         myVars.setGerToEngSelected(false);       
@@ -439,17 +442,19 @@ public class MyGUI extends javax.swing.JFrame {
         config.save();
     }
  
+    // TODO #18 Start VoiceRecognition if VoiceRecogToggle is selected
     private void jRadioButton1_VoiceRecognitionActionPerformed(java.awt.event.ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
         System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
         config.save();
-
     }
 
+    // TODO #14 Add a way to input new words when "Add Word" is clicked
     private void jButton3_AddWordActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("Add Words button clicked!");
     }
-
+    
+    // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit Word" is clicked
     private void jButton4_RemEditWordActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("Remove / Edit Word button clicked!");
     }
