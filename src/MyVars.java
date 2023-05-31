@@ -2,6 +2,7 @@ public class MyVars {
     private int intRightWords;
     private int intWrongWords;
     private boolean isVoiceToggleSelected;
+    private boolean isGerToEngSelected;
 
     private static MyVars instance = null;
 
@@ -34,6 +35,10 @@ public class MyVars {
         this.isVoiceToggleSelected = isVoiceToggleSelected;
     }
 
+    public void setGerToEngSelected(boolean isGerToEngSelected) {
+        this.isGerToEngSelected = isGerToEngSelected;
+    }
+    
     public int getIntRightWords() {
         return intRightWords;
     }
@@ -44,6 +49,10 @@ public class MyVars {
 
     public boolean isVoiceToggleSelected() {
         return isVoiceToggleSelected;
+    }
+
+    public boolean isGerToEngSelected() {
+        return isGerToEngSelected;
     }
 
 }
