@@ -34,6 +34,7 @@ public class SpeechRecognition {
                 e.printStackTrace();
                 p.destroy();
             }
+            transcription = getTranscriptionFromPython();
         }
 
     public void startGerRecognizer() {
@@ -44,10 +45,11 @@ public class SpeechRecognition {
             e.printStackTrace();
             p.destroy();
         }
+        transcription = getTranscriptionFromPython();
     }
 
     // TODO Change this to IPC using sockets
-    public String getTranscription() {
+    private String getTranscriptionFromPython() {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
             while (!p.isAlive() || in.ready()) {
@@ -74,4 +76,7 @@ public class SpeechRecognition {
         
     }
 
+    public String getTranscription() {
+        return transcription;
+    }
 }
