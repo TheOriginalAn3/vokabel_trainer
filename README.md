@@ -1,8 +1,11 @@
 # **About:**
 
-This is a school project. This File will also contain all necesarry [issue labels](#issue-labels-issue-labels):
+This is a school project 🏫. This File will also contain all necesarry [issue labels](#issue-labels-issue-labels)❗:
 
-## <u>[__Issue Labels:__](https://github.com/TheOriginalAn3/vokabel_trainer/labels)</u>
+**<span style="color:#f6546a">❗WARNING❗</span>** For SpeechRecognition to work, you need to have **<span style="color:#6cc0e5">Python</span>** installed. Once you've downloaded Python or if you already have it, you need to open requirements.txt and create a **<span style="color:#6cc0e5">.venv</span>** enviroment.
+**<span style="color:#f6546a">❗DO NOT MOVE❗</span>** Do not move the Python sripts somewhere else other then your Project Folder. Don't move or create any scripts inside any Subfolder of your Project Folder. This will cause your script not to work.
+
+## <u>[**__Issue Labels:__**](https://github.com/TheOriginalAn3/vokabel_trainer/labels)</u> 🏷
 
 >- [<span style="color:#d73a4a">bug](https://github.com/TheOriginalAn3/vokabel_trainer/labels/bug) - Use this is you have a bug.
 >- [<span style="color:#0075ca">doku](https://github.com/TheOriginalAn3/vokabel_trainer/labels/doku) - Use this if documentation for this code is missing.
