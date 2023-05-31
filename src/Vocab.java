@@ -4,8 +4,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 // Use of Files and Paths imports suggested by Bing AI
+import java.util.Random;
 
 public class Vocab {
     // English words
@@ -16,19 +18,29 @@ public class Vocab {
     private String gerVocabFile = "German.txt";
     private List<String> gerVocabList;
 
-    
+    // Random vocab
+    private String[] vocab = { "engWord", "gerWord" };
+
+    // ArrayList is used to create a resizable array.
+    // Used to make sure no dupplicate random numbers are used
+    private List<Integer> generatedNumbers = new ArrayList<>();
+    // Random number generator
+    private Random random = new Random();
+    // Randomly generated number
+    private int randomListPosition;
+
     public void addNewWord(String engWord, String gerWord) {
-        
+
         // Probably not necessary but added just to be safe.
-        // Updates the Lists in memory with the words/sentences from the corresponding files.
+        // Updates the Lists in memory with the words/sentences from the corresponding
+        // files.
         readFilesToLists();
-        
+
         // New Words get added to the Lists
         try {
             engVocabList.add(engWord);
             gerVocabList.add(gerWord);
-            
-            
+
             // Update English.txt File
             BufferedWriter writerForEng = new BufferedWriter(new FileWriter(engVocabFile));
             for (String vocab : engVocabList) {
@@ -36,7 +48,7 @@ public class Vocab {
                 writerForEng.newLine();
             }
             writerForEng.close();
-            
+
             // Update German.txt File
             BufferedWriter writerForGer = new BufferedWriter(new FileWriter(gerVocabFile));
             for (String vocab : gerVocabList) {
@@ -49,17 +61,30 @@ public class Vocab {
         }
     }
 
-    /*
-    TODO Create a method that randomly selects a word from the engVocabList and save its position in a private variable. Return that word.
-    TODO Get the position of the selected word in the engVocabList and use it to select the same position but for the gerVocabList. Return that word.
     
-    
-    */ 
+    // Returns an array with the engVocab in pos 0 and gerVocab in pos 1
+    public String[] getRandomVocab() {
+        generateRandomNumber();
+        vocab[0] = engVocabList.get(randomListPosition);
+        vocab[1] = gerVocabList.get(randomListPosition);
+        return vocab;
+    }
 
+    // Generates a random number and returns it, if it hasnt been used before.
+    private int generateRandomNumber() {
+        if (generatedNumbers.size() == engVocabList.size()) {
+            generatedNumbers.clear();
+        }
 
+        do {
+            randomListPosition = random.nextInt(engVocabList.size());
+        } while (generatedNumbers.contains(randomListPosition));
 
+        generatedNumbers.add(randomListPosition);
+        return randomListPosition;
+    }
 
-    private void readFilesToLists(){
+    private void readFilesToLists() {
         try {
             System.out.println("Reading Files to Lists...");
             engVocabList = Files.readAllLines(Paths.get(engVocabFile));
@@ -81,10 +106,12 @@ public class Vocab {
      * of this class
      */
     private static Vocab instance = null;
+
     private Vocab() {
         // Exists only to defeat instantiation.
         readFilesToLists();
     }
+
     public static Vocab getInstance() {
         if (instance == null) {
             System.out.println("MyVars Object not existent...");
