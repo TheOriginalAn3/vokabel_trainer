@@ -1,0 +1,5 @@
+ich 
+du
+er
+sie
+es
