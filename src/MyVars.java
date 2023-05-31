@@ -11,10 +11,12 @@ public class MyVars {
     }
     public static MyVars getInstance() {
         if(instance == null) {
+            System.out.println("MyVars Object not existent...");
             instance = new MyVars();
         } else {
-            System.out.println("MyVars Object already exists!!!");
+            System.out.println("MyVars Object already exists...");
         }
+        System.out.println("Returning this instance");
         return instance;
     }
     // This marks the end of the trick i saw on TikTok
