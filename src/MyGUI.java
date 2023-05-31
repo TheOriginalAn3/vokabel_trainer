@@ -25,11 +25,10 @@ public class MyGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane_ToTranslate;
 
-    // TODO #3 This variables should be read and saved from/to a File
-    // Temporary default states
-    private int intRightWords = 134;
-    private int intWrongWords = 971;
-    private boolean stateVocieRecognitionToggle = false; 
+    // Get access to variables from config file
+    // Get access to save method to save Variable Changes
+    private MyVars myVars;
+    private Config config;
 
     // TODO #4 Variables should be created for the UI Colors
     /* 
@@ -37,7 +36,9 @@ public class MyGUI extends javax.swing.JFrame {
     */
     // End of variables declaration       
 
-    public MyGUI() {
+    public MyGUI(MyVars myVars, Config config) {
+        this.myVars = myVars;
+        this.config = config;
         initComponents();
     }
 
@@ -119,7 +120,7 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel_RightWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
         jLabel_RightWords.setForeground(new java.awt.Color(0x262a2b)); // Number color
         jLabel_RightWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_RightWords.setText(Integer.toString(intRightWords)); // Set ammount of right words
+        jLabel_RightWords.setText(Integer.toString(myVars.getIntRightWords())); // Set ammount of right words
         
         // I have no idea what this does. I just built and sized the GUI using NetBeans Scene Builder
         // I think this is just for spacing the text inside the "Right Words" pane
@@ -154,7 +155,7 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel_WrongWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
         jLabel_WrongWords.setForeground(new java.awt.Color(0x262a2b)); // Number color
         jLabel_WrongWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_WrongWords.setText(Integer.toString(intWrongWords)); // Set ammount of wrong words
+        jLabel_WrongWords.setText(Integer.toString(myVars.getIntWrongWords())); // Set ammount of wrong words
         
         // I have no idea what this does. I just built and sized the GUI using NetBeans Scene Builder
         // I think this is just for spacing the text inside the "Wrong Words" pane
@@ -187,7 +188,7 @@ public class MyGUI extends javax.swing.JFrame {
         jRadioButton1_VoiceRecognition.setText("Voice Recognition");
         jRadioButton1_VoiceRecognition.setToolTipText("!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
         jRadioButton1_VoiceRecognition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jRadioButton1_VoiceRecognition.setSelected(stateVocieRecognitionToggle); // Set state (selected/deselected). This code calls the 
+        jRadioButton1_VoiceRecognition.setSelected(myVars.isVoiceToggleSelected()); // Set state (selected/deselected). This code calls the 
         jRadioButton1_VoiceRecognition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1_VoiceRecognitionActionPerformed(evt);
@@ -405,25 +406,15 @@ public class MyGUI extends javax.swing.JFrame {
         this.setVisible(true);
     }// </editor-fold>                        
 
-    // Getters
-    public int getIntRightWords() {
-        return intRightWords;
-    }
-    public int getIntWrongWords() {
-        return intWrongWords;
-    }
-    public boolean getStateVocieRecognitionToggle() {
-        stateVocieRecognitionToggle = jRadioButton1_VoiceRecognition.isSelected();
-        return stateVocieRecognitionToggle;
-    }
-
     // Setters
     public void setIntRightWords(int intRightWords) {
-        this.intRightWords = intRightWords;
-        jLabel_RightWords.setText(Integer.toString(intRightWords));
+        myVars.setIntRightWords(intRightWords);
+        config.save();
+        jLabel_RightWords.setText(Integer.toString(myVars.getIntRightWords()));
     }
     public void setIntWrongWords(int intWrongWords) {
-        this.intWrongWords = intWrongWords;
+        myVars.setIntWrongWords(intWrongWords);
+        config.save();
         jLabel_WrongWords.setText(Integer.toString(intWrongWords));
     }
 
@@ -436,16 +427,18 @@ public class MyGUI extends javax.swing.JFrame {
         System.out.println("Home button clicked!");
     }                                        
 
-    private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {    
         System.out.println("EngToGer selected!");
+        myVars.setGerToEngSelected(false);                                          
     }
 
     private void jRadioButton3_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
+        myVars.setGerToEngSelected(true);
     }
  
     private void jRadioButton1_VoiceRecognitionActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("Voice Recognition Selected: " + getStateVocieRecognitionToggle());
+        System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
     }
 
     private void jButton3_AddWordActionPerformed(java.awt.event.ActionEvent evt) {
