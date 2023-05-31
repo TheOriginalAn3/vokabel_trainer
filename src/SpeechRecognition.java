@@ -25,7 +25,7 @@ public class SpeechRecognition {
     }
     // This marks the end of the trick I saw on TikTok
 
-
+    // TODO #19 Create a programm to start the Python Script
     public void startEngRecognizer() {
             try {
                 pb = new ProcessBuilder("python", "EngPythonRecognizer.py");
@@ -48,35 +48,5 @@ public class SpeechRecognition {
         transcription = getTranscriptionFromPython();
     }
 
-    // TODO Change this to IPC using sockets
-    private String getTranscriptionFromPython() {
-        try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            while (!p.isAlive() || in.ready()) {
-                transcription = in.readLine();
-                if (transcription != null && (!transcription.equalsIgnoreCase("Google Speech Recognition could not understand audio")) || (!transcription.equalsIgnoreCase("Could not request results from Google Speech Recognition service"))) {
-                    System.out.println("Transcription: " + transcription);
-                    System.out.println("Returning Transcription...");
-                } else if (transcription.equalsIgnoreCase("Google Speech Recognition could not understand audio")) {
-                    System.out.println(transcription);
-                } else if (transcription.equalsIgnoreCase("Could not request results from Google Speech Recognition service")) {
-                    System.out.println(transcription);
-                } else {
-                    System.out.println("Unexpected Problem hass occured with the Recognizer!");
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (transcription != null) {
-            return transcription; 
-        } else {
-            return "error";
-        }
-        
-    }
-
-    public String getTranscription() {
-        return transcription;
-    }
+    // TODO Create a method to get the transcription from Python
 }
