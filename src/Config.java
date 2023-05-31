@@ -9,10 +9,24 @@ public class Config {
 
     private MyVars variables;
 
+    private static Config instance = null;
     // Gets MyVars object/instance if one already exists. Creates new MyVars object/instance if one dosn't already exist.
-    public Config() {
+    // Trick I saw on TikTok (Singleton method to only allow one object of this class to exist)
+    private Config() {
         this.variables = MyVars.getInstance();
     }
+    public static Config getInstance() {
+        if(instance == null) {
+            System.out.println("Config Object not existent...");
+            instance = new Config();
+        } else {
+            System.out.println("Config Object already exists...");
+        }
+        System.out.println("Returning this instance");
+        return instance;
+    }
+    // This marks the end of the trick i saw on TikTok
+
 
     /*
      * PLEASE FOLLOW tHIS ORDER WHEN SAVING OR LOADING VARIABLES:
