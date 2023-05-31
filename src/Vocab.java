@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.ArrayList;
 import java.util.List;
-// Use of Files and Paths imports suggested by Bing AI
 import java.util.Random;
+// Use of Files and Paths imports suggested by Bing AI
 
 public class Vocab {
     // English words
@@ -62,7 +61,6 @@ public class Vocab {
         }
     }
 
-    
     // Returns an array with the engVocab in pos 0 and gerVocab in pos 1
     public String[] getRandomVocab() {
         generateRandomNumber();
