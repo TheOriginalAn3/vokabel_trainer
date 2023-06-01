@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class MyGUI extends javax.swing.JFrame {
     // TODO #7 Create missing UI elements for button clicks
     // Variables declaration - do not modify                     
@@ -30,10 +32,14 @@ public class MyGUI extends javax.swing.JFrame {
     private MyVars myVars;
     private Config config;
 
-    // TODO #4 Variables should be created for the UI Colors
-    /* 
-    Create Variables For Colors
-    */
+    // Color Variables set here once else new color obj will have to be created for each time a color i sused.
+    private Color mainColor = new java.awt.Color(0x262a2b);
+    private Color mainButtonColor = new java.awt.Color(0x624d35);
+    private Color mainTextColor = new java.awt.Color(0xdbd8d3);
+    private Color rightWordsPannelColor = new java.awt.Color(0x4ca06a);
+    private Color wrongWordsPannelColor = new java.awt.Color(250, 117, 117);
+    private Color secondaryButtonColor = new java.awt.Color(0x1f2223);
+
     // End of variables declaration       
 
     public MyGUI(MyVars myVars, Config config) {
@@ -79,20 +85,20 @@ public class MyGUI extends javax.swing.JFrame {
         // Main pannel
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vocabulary Trainer by Selin and Andrei");
-        setBackground(new java.awt.Color(0x262a2b));
+        setBackground(mainColor);
         setSize(470, 245);
         setResizable(false);
         setName("GUI"); // NOI18N
 
         // Left Side Menu
-        jPanel1.setBackground(new java.awt.Color(0x262a2b)); // Set jPanel1 (Left menu pannel) color to #262a2b
+        jPanel1.setBackground(mainColor); // Set jPanel1 (Left menu pannel) color to #262a2b
 
         // TODO #12 Remove Settings Button
         // Settings Button
-        jButton1_Settings.setBackground(new java.awt.Color(0x624d35)); // Set Settings button color to #624d35
+        jButton1_Settings.setBackground(mainButtonColor); // Set Settings button color to #624d35
         jButton1_Settings.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
         jButton1_Settings.setText("Settings");
-        jButton1_Settings.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color to #dbd8d3
+        jButton1_Settings.setForeground(mainTextColor); // Set text color to #dbd8d3
         jButton1_Settings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1_Settings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,10 +108,10 @@ public class MyGUI extends javax.swing.JFrame {
 
         // TODO #13 Remove Home Button
         // Home Button
-        jButton2_Home.setBackground(new java.awt.Color(0x624d35)); // Set home button color to #624d35
+        jButton2_Home.setBackground(mainButtonColor); // Set home button color to #624d35
         jButton2_Home.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
         jButton2_Home.setText("Home");
-        jButton2_Home.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color to #dbd8d3
+        jButton2_Home.setForeground(mainTextColor); // Set text color to #dbd8d3
         jButton2_Home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2_Home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,13 +120,13 @@ public class MyGUI extends javax.swing.JFrame {
         });
         
         // Right Words
-        jPanel2.setBackground(new java.awt.Color(0x4ca06a)); // Panel color
+        jPanel2.setBackground(rightWordsPannelColor); // Panel color
         jLabel1.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
         jLabel1.setText("Right Words:");
-        jLabel1.setForeground(new java.awt.Color(0x262a2b)); // Text color
+        jLabel1.setForeground(mainColor); // Text color
 
         jLabel_RightWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel_RightWords.setForeground(new java.awt.Color(0x262a2b)); // Number color
+        jLabel_RightWords.setForeground(mainColor); // Number color
         jLabel_RightWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_RightWords.setText(Integer.toString(myVars.getIntRightWords())); // Set ammount of right words
         
@@ -149,13 +155,13 @@ public class MyGUI extends javax.swing.JFrame {
 
 
         // Wrong words
-        jPanel3.setBackground(new java.awt.Color(250, 117, 117)); // Panel color
+        jPanel3.setBackground(wrongWordsPannelColor); // Panel color
         jLabel3.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0x262a2b)); // Text color
+        jLabel3.setForeground(mainColor); // Text color
         jLabel3.setText("Wrong Words:");
 
         jLabel_WrongWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel_WrongWords.setForeground(new java.awt.Color(0x262a2b)); // Number color
+        jLabel_WrongWords.setForeground(mainColor); // Number color
         jLabel_WrongWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_WrongWords.setText(Integer.toString(myVars.getIntWrongWords())); // Set ammount of wrong words
         
@@ -184,9 +190,9 @@ public class MyGUI extends javax.swing.JFrame {
 
 
         // Vocie Recognition Toggle
-        jRadioButton1_VoiceRecognition.setBackground(new java.awt.Color(0x262a2b));
+        jRadioButton1_VoiceRecognition.setBackground(mainColor);
         jRadioButton1_VoiceRecognition.setFont(new java.awt.Font("Unispace", 1, 12)); // NOI18N
-        jRadioButton1_VoiceRecognition.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jRadioButton1_VoiceRecognition.setForeground(mainTextColor); // Set text color
         jRadioButton1_VoiceRecognition.setText("Voice Recognition");
         jRadioButton1_VoiceRecognition.setToolTipText("!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
         jRadioButton1_VoiceRecognition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -198,9 +204,9 @@ public class MyGUI extends javax.swing.JFrame {
         });
 
         // Add Word Button
-        jButton3_AddWord.setBackground(new java.awt.Color(0x1f2223)); // Set panel color
+        jButton3_AddWord.setBackground(secondaryButtonColor); // Set panel color
         jButton3_AddWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jButton3_AddWord.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jButton3_AddWord.setForeground(mainTextColor); // Set text color
         jButton3_AddWord.setText("Add a Word");
         jButton3_AddWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3_AddWord.addActionListener(new java.awt.event.ActionListener() {
@@ -210,9 +216,9 @@ public class MyGUI extends javax.swing.JFrame {
         });
 
         // Remove Edit Word Button
-        jButton4_RemEditWord.setBackground(new java.awt.Color(0x1f2223)); // Set panel color
+        jButton4_RemEditWord.setBackground(secondaryButtonColor); // Set panel color
         jButton4_RemEditWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jButton4_RemEditWord.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jButton4_RemEditWord.setForeground(mainTextColor); // Set text color
         jButton4_RemEditWord.setText("Remove / Edit a Word");
         jButton4_RemEditWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4_RemEditWord.addActionListener(new java.awt.event.ActionListener() {
@@ -225,15 +231,15 @@ public class MyGUI extends javax.swing.JFrame {
         // Language Select Menu
         jLabel7.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jLabel7.setText("Language Select:");
-        jLabel7.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jLabel7.setForeground(mainTextColor); // Set text color
 
         // English to German Toggle
         buttonGroup2.add(jRadioButton2_EngToGer);
         jRadioButton2_EngToGer.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jRadioButton2_EngToGer.setSelected(!myVars.isGerToEngSelected()); // Read the state of the Toggle and set it to its opposite.
         jRadioButton2_EngToGer.setText("English -> German");
-        jRadioButton2_EngToGer.setBackground(new java.awt.Color(0x262a2b)); // Set background color
-        jRadioButton2_EngToGer.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jRadioButton2_EngToGer.setBackground(mainColor); // Set background color
+        jRadioButton2_EngToGer.setForeground(mainTextColor); // Set text color
 
         jRadioButton2_EngToGer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,8 +252,8 @@ public class MyGUI extends javax.swing.JFrame {
         jRadioButton3_GerToEng.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jRadioButton3_GerToEng.setSelected(myVars.isGerToEngSelected()); // Read the state of the Toggle and set it.
         jRadioButton3_GerToEng.setText("German -> English");
-        jRadioButton3_GerToEng.setBackground(new java.awt.Color(0x262a2b)); // Set background color
-        jRadioButton3_GerToEng.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jRadioButton3_GerToEng.setBackground(mainColor); // Set background color
+        jRadioButton3_GerToEng.setForeground(mainTextColor); // Set text color
         jRadioButton3_GerToEng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton3_EngToGerActionPerformed(evt);
@@ -304,21 +310,21 @@ public class MyGUI extends javax.swing.JFrame {
 
         // TODO #6 BUG: window resizes with the lenght of the word @TheOriginalAn3
         // Word Display Pane
-        jPanel4.setBackground(new java.awt.Color(0x262a2b)); // Change pane color
+        jPanel4.setBackground(mainColor); // Change pane color
 
         // Translate This Label
         jLabel5.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jLabel5.setForeground(mainTextColor); // Set text color
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Translate this word:");
 
         // Word To Translate
         jTextPane_ToTranslate.setEditable(false);
         jTextPane_ToTranslate.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        jTextPane_ToTranslate.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
+        jTextPane_ToTranslate.setForeground(mainTextColor); // Set text color
         jTextPane_ToTranslate.setText("to do sth without knowing what youre doing");
         jTextPane_ToTranslate.setAutoscrolls(false);
-        jTextPane_ToTranslate.setBackground(new java.awt.Color(0x1f2223)); // Set background color
+        jTextPane_ToTranslate.setBackground(secondaryButtonColor); // Set background color
         jScrollPane1.setViewportView(jTextPane_ToTranslate);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -343,19 +349,19 @@ public class MyGUI extends javax.swing.JFrame {
         );
 
         // Write Translation Pane
-        jPanel5.setBackground(new java.awt.Color(0x262a2b));
+        jPanel5.setBackground(mainColor);
 
         // Translation Text
         jLabel2.setFont(new java.awt.Font("Unispace", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0xdbd8d3));
+        jLabel2.setForeground(mainTextColor);
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Translation:");
 
         // TODO #16 Get the text from input-field (jTextField1)
         // Translation Input Text Field
         jTextField1.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0xdbd8d3)); // Set text color
-        jTextField1.setBackground(new java.awt.Color(0x1f2223));
+        jTextField1.setForeground(mainTextColor); // Set text color
+        jTextField1.setBackground(secondaryButtonColor);
         jTextField1.setText("Translation");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
