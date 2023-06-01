@@ -4,7 +4,6 @@ public class MyGUI extends javax.swing.JFrame {
     // TODO #7 Create missing UI elements for button clicks
     // Variables declaration - do not modify                     
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1_Settings;
     private javax.swing.JButton jButton3_AddWord;
     private javax.swing.JButton jButton4_RemEditWord;
     private javax.swing.JLabel jLabel1;
@@ -58,7 +57,6 @@ public class MyGUI extends javax.swing.JFrame {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jButton1_Settings = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel_RightWords = new javax.swing.JLabel();
@@ -90,19 +88,6 @@ public class MyGUI extends javax.swing.JFrame {
 
         // Left Side Menu
         jPanel1.setBackground(mainColor); // Set jPanel1 (Left menu pannel) color to #262a2b
-
-        // TODO #12 Remove Settings Button
-        // Settings Button
-        jButton1_Settings.setBackground(mainButtonColor); // Set Settings button color to #624d35
-        jButton1_Settings.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
-        jButton1_Settings.setText("Settings");
-        jButton1_Settings.setForeground(mainTextColor); // Set text color to #dbd8d3
-        jButton1_Settings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1_Settings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_SettingsActionPerformed(evt);
-            }
-        });
         
         // Right Words
         jPanel2.setBackground(rightWordsPannelColor); // Panel color
@@ -254,7 +239,6 @@ public class MyGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jButton3_AddWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1_Settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4_RemEditWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButton1_VoiceRecognition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -287,7 +271,6 @@ public class MyGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4_RemEditWord)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -409,11 +392,7 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel_WrongWords.setText(Integer.toString(intWrongWords));
     }
 
-    // Event Handler Methods
-    private void jButton1_SettingsActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        System.out.println("Settings button clickerd!");
-    }                                                                             
-
+    // Event Handler Methods                                                                         
     // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable
     private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {    
         System.out.println("EngToGer selected!");
