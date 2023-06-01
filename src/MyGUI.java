@@ -5,7 +5,6 @@ public class MyGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1_Settings;
-    private javax.swing.JButton jButton2_Home;
     private javax.swing.JButton jButton3_AddWord;
     private javax.swing.JButton jButton4_RemEditWord;
     private javax.swing.JLabel jLabel1;
@@ -60,7 +59,6 @@ public class MyGUI extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButton1_Settings = new javax.swing.JButton();
-        jButton2_Home = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel_RightWords = new javax.swing.JLabel();
@@ -103,19 +101,6 @@ public class MyGUI extends javax.swing.JFrame {
         jButton1_Settings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_SettingsActionPerformed(evt);
-            }
-        });
-
-        // TODO #13 Remove Home Button
-        // Home Button
-        jButton2_Home.setBackground(mainButtonColor); // Set home button color to #624d35
-        jButton2_Home.setFont(new java.awt.Font("Unispace", 1, 13)); // NOI18N
-        jButton2_Home.setText("Home");
-        jButton2_Home.setForeground(mainTextColor); // Set text color to #dbd8d3
-        jButton2_Home.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2_Home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2_HomeActionPerformed(evt);
             }
         });
         
@@ -270,7 +255,6 @@ public class MyGUI extends javax.swing.JFrame {
                 .addComponent(jButton3_AddWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1_Settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4_RemEditWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButton1_VoiceRecognition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -289,7 +273,6 @@ public class MyGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2_Home, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton1_VoiceRecognition)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -429,11 +412,7 @@ public class MyGUI extends javax.swing.JFrame {
     // Event Handler Methods
     private void jButton1_SettingsActionPerformed(java.awt.event.ActionEvent evt) {                                         
         System.out.println("Settings button clickerd!");
-    }                                        
-
-    private void jButton2_HomeActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        System.out.println("Home button clicked!");
-    }                                        
+    }                                                                             
 
     // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable
     private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {    
