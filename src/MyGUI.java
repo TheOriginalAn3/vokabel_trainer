@@ -32,12 +32,13 @@ public class MyGUI extends javax.swing.JFrame {
 
     // Color Variables set here once else new color obj will have to be created for each time a color i sused.
     private Color mainColor = new java.awt.Color(0x262a2b);
-    private Color mainButtonColor = new java.awt.Color(0x624d35);
+    //private Color mainButtonColor = new java.awt.Color(0x624d35);
     private Color mainTextColor = new java.awt.Color(0xdbd8d3);
     private Color rightWordsPannelColor = new java.awt.Color(0x4ca06a);
     private Color wrongWordsPannelColor = new java.awt.Color(250, 117, 117);
     private Color secondaryButtonColor = new java.awt.Color(0x1f2223);
 
+    private String inputText;
     // End of variables declaration       
 
     public MyGUI(MyVars myVars, Config config) {
@@ -323,12 +324,17 @@ public class MyGUI extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Translation:");
 
-        // TODO #16 Get the text from input-field (jTextField1)
         // Translation Input Text Field
         jTextField1.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jTextField1.setForeground(mainTextColor); // Set text color
         jTextField1.setBackground(secondaryButtonColor);
         jTextField1.setText("Translation");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -421,5 +427,12 @@ public class MyGUI extends javax.swing.JFrame {
     // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit Word" is clicked
     private void jButton4_RemEditWordActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("Remove / Edit Word button clicked!");
+    }
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+        inputText = jTextField1.getText();
+        System.out.println("Text submited: " + inputText);
+        jTextField1.setText("");
+        
     }
 }
