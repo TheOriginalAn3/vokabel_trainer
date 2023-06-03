@@ -1,0 +1,17 @@
+
+.jfx-checkbox > .jfx-checkbox-box > .jfx-icon {
+    -fx-background-color: green;
+}
+
+.goals-pane {
+    -fx-background-color: #FFFDF1;
+    -fx-background-radius: 15;
+    -fx-effect:  dropshadow(three-pass-box, rgba(0, 0, 0, 0.08), 10, 0.0, 0.0, 5);
+}
+.goals-pane-completed {
+    -fx-background-color: #57b988;
+    -fx-background-radius: 15;
+    -fx-effect:  dropshadow(three-pass-box, rgba(87, 185, 136, 0.373), 10, 0.0, 0.0, 5)
+}
+
+

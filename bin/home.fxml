@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2017, Gluon and/or its affiliates.
+    All rights reserved. Use is subject to license terms.
+
+    This file is available and licensed under the following license:
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the distribution.
+   - Neither the name of Oracle Corporation and Gluon nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #fffcef;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="48.0" prefWidth="348.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome," AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="Comic Sans MS" size="16.0" />
+               </font>
+            </Text>
+            <Label layoutX="14.0" layoutY="35.0" text="User!" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="18.0" />
+               </font>
+            </Label>
+            <Avatar layoutX="271.0" layoutY="11.0" radius="25.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <image>
+                  <Image url="@../resources/icons/user-02-svgrepo-com.png" />
+               </image>
+            </Avatar>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Today's Goals" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="24.0" />
+               </font>
+            </Label>
+            <VBox layoutX="15.0" layoutY="51.0" prefHeight="160.0" prefWidth="306.0" spacing="5.0" AnchorPane.bottomAnchor="310.4" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Pane prefHeight="54.0" prefWidth="306.0" styleClass="goals-pane" stylesheets="@css/style.css">
+                     <children>
+                        <JFXCheckBox checkedColor="#28a44b" graphicTextGap="0.0" layoutX="14.0" layoutY="18.0" styleClass="jfx-checkbox-label" stylesheets="@css/style.css" text="​" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="40.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/icons/flag-for-flag-germany-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="80.0" layoutY="5.0" prefHeight="26.0" prefWidth="179.0" text="Practice Words">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="28.0" prefHeight="18.0" prefWidth="123.0" text="English -&gt; German">
+                           <font>
+                              <Font name="Comic Sans MS" size="12.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <Pane prefHeight="54.0" prefWidth="306.0" styleClass="goals-pane-completed" stylesheets="@css/style.css">
+                     <children>
+                        <JFXCheckBox checkedColor="#28a44b" ellipsisString="" graphicTextGap="0.0" layoutX="14.0" layoutY="18.0" selected="true" styleClass="jfx-checkbox-box" stylesheets="@css/style.css" text="​" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="40.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/icons/flag-us-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="77.0" layoutY="14.0" prefHeight="26.0" prefWidth="179.0" text="Complete a test" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <Pane prefHeight="54.0" prefWidth="306.0" styleClass="goals-pane" stylesheets="@css/style.css">
+                     <children>
+                        <JFXCheckBox checkedColor="#28a44b" graphicTextGap="0.0" layoutX="14.0" layoutY="18.0" styleClass="jfx-checkbox-label" stylesheets="@css/style.css" text="​" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="40.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/icons/fire-svgrepo-com%20(1).png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="77.0" layoutY="5.0" prefHeight="26.0" prefWidth="179.0" text="Complete a test" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="77.0" layoutY="27.0" prefHeight="18.0" prefWidth="123.0" text="Get 10 words right">
+                           <font>
+                              <Font name="Comic Sans MS" size="12.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+               </children>
+            </VBox>
+            <Label layoutX="15.0" layoutY="238.0" text="Mode Select" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="238.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox layoutX="15.0" layoutY="273.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="275.0">
+               <children>
+                  <Pane prefHeight="146.0" prefWidth="100.0" style="-fx-background-radius: 15; -fx-background-color: FF9800;">
+                     <children>
+                        <ImageView fitHeight="86.0" fitWidth="122.0" layoutX="4.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/icons/question-svgrepo-com%20(1).png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="12.0" layoutY="111.0" text="Practice" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <Pane prefHeight="146.0" prefWidth="100.0" style="-fx-background-radius: 15; -fx-background-color: #2196F3;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="185.0" layoutX="13.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/icons/test-exam-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="28.0" layoutY="111.0" text="Test" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <Pane prefHeight="146.0" prefWidth="100.0" style="-fx-background-radius: 15; -fx-background-color: F44336;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="185.0" layoutX="13.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/icons/settings-svgrepo-com.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="12.0" layoutY="111.0" text="Settings" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+</View>
