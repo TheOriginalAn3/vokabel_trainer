@@ -57,7 +57,8 @@ public class MyGUI extends javax.swing.JFrame {
         initComponents();
     }
 
-
+    // Method stolen from a game project im working on
+    // Link for the github repo:  https://github.com/TheOriginalAn3/Some2DGame/blob/master/src/main/ImageHandler.java
     public static BufferedImage readImage(String pathToImg) {
         try {
             BufferedImage img = null;
