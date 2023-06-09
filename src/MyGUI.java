@@ -1,4 +1,14 @@
 import java.awt.Color;
+import java.awt.ImageCapabilities;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javax.imageio.ImageIO;
 
 public class MyGUI extends javax.swing.JFrame {
     // TODO #7 Create missing UI elements for button clicks
@@ -47,6 +57,24 @@ public class MyGUI extends javax.swing.JFrame {
         initComponents();
     }
 
+
+    public static BufferedImage readImage(String pathToImg) {
+        try {
+            BufferedImage img = null;
+            File file = new File(pathToImg);
+            if (file.exists()) {
+                try (InputStream inputStream = new BufferedInputStream(new FileInputStream(file))) {
+                    img = ImageIO.read(inputStream);
+                }
+            }
+            return img;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,6 +114,7 @@ public class MyGUI extends javax.swing.JFrame {
         setSize(470, 245);
         setResizable(false);
         setName("GUI"); // NOI18N
+        setIconImage(readImage("resources/images/logo_BingImageCreator.png"));
 
         // Left Side Menu
         jPanel1.setBackground(mainColor); // Set jPanel1 (Left menu pannel) color to #262a2b
