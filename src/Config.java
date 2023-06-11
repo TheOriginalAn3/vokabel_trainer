@@ -38,7 +38,7 @@ public class Config {
 
     public void save() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("config.txt"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("resources/config.txt"));
 
             // intRightWords
             bw.write(Integer.toString(variables.getIntRightWords()));
@@ -67,7 +67,7 @@ public class Config {
 
     public void load() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("config.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("resources/config.txt"));
 
             // intRightWords
             variables.setIntRightWords(Integer.parseInt(br.readLine()));
@@ -91,7 +91,6 @@ public class Config {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void printVars() {

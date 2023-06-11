@@ -1,12 +1,10 @@
 import java.awt.Color;
-import java.awt.ImageCapabilities;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 import javax.imageio.ImageIO;
 
@@ -16,16 +14,16 @@ public class MyGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton3_AddWord;
     private javax.swing.JButton jButton4_RemEditWord;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelRightWords;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelWrongWords;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel_RightWords;
-    private javax.swing.JLabel jLabel_WrongWords;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabelRightWordsCount;
+    private javax.swing.JLabel jLabelWrongWordsCount;
+    private javax.swing.JPanel jPanelLeftSideMenu;
+    private javax.swing.JPanel jPanelRightWords;
+    private javax.swing.JPanel jPanelWrongWords;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioButton1_VoiceRecognition;
@@ -41,12 +39,15 @@ public class MyGUI extends javax.swing.JFrame {
     private Config config;
 
     // Color Variables set here once else new color obj will have to be created for each time a color i sused.
-    private Color mainColor = new java.awt.Color(0x262a2b);
+    private Color mainColor = new java.awt.Color(0x221f3a); // Dark Purple
     //private Color mainButtonColor = new java.awt.Color(0x624d35);
-    private Color mainTextColor = new java.awt.Color(0xdbd8d3);
-    private Color rightWordsPannelColor = new java.awt.Color(0x4ca06a);
-    private Color wrongWordsPannelColor = new java.awt.Color(250, 117, 117);
+    private Color mainTextColor = new java.awt.Color(0xcecdd8);
+    // private Color rightWordsPannelColor = new java.awt.Color(0x4ca06a);
+    // private Color wrongWordsPannelColor = new java.awt.Color(250, 117, 117);
     private Color secondaryButtonColor = new java.awt.Color(0x1f2223);
+
+    private Color secondaryColor = new java.awt.Color(0x26233e);
+    private Color tertiaryColor = new java.awt.Color(0x2f2b4c);
 
     private String inputText;
     // End of variables declaration       
@@ -86,13 +87,13 @@ public class MyGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel_RightWords = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel_WrongWords = new javax.swing.JLabel();
+        jPanelLeftSideMenu = new javax.swing.JPanel();
+        jPanelRightWords = new javax.swing.JPanel();
+        jLabelRightWords = new javax.swing.JLabel();
+        jLabelRightWordsCount = new javax.swing.JLabel();
+        jPanelWrongWords = new javax.swing.JPanel();
+        jLabelWrongWords = new javax.swing.JLabel();
+        jLabelWrongWordsCount = new javax.swing.JLabel();
         jRadioButton1_VoiceRecognition = new javax.swing.JRadioButton();
         jButton3_AddWord = new javax.swing.JButton();
         jButton4_RemEditWord = new javax.swing.JButton();
@@ -118,30 +119,31 @@ public class MyGUI extends javax.swing.JFrame {
         setIconImage(readImage("resources/images/logo_BingImageCreator.png"));
 
         // Left Side Menu
-        jPanel1.setBackground(mainColor); // Set jPanel1 (Left menu pannel) color to #262a2b
+        jPanelLeftSideMenu.setBackground(secondaryColor); // Set jPanel1 (Left menu pannel) color to #262a2b
         
         // Right Words
-        jPanel2.setBackground(rightWordsPannelColor); // Panel color
-        jLabel1.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel1.setText("Right Words:");
-        jLabel1.setForeground(mainColor); // Text color
+        jPanelRightWords.setBackground(tertiaryColor); // Panel color
+        jLabelRightWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
+        jLabelRightWords.setText("Right Words:");
+        jLabelRightWords.setForeground(mainTextColor); // Text color
 
-        jLabel_RightWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel_RightWords.setForeground(mainColor); // Number color
-        jLabel_RightWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_RightWords.setText(Integer.toString(myVars.getIntRightWords())); // Set ammount of right words
+        jLabelRightWordsCount.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
+        jLabelRightWordsCount.setForeground(mainTextColor); // Number color
+        jLabelRightWordsCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelRightWordsCount.setText(Integer.toString(myVars.getIntRightWords())); // Set ammount of right words
         
         // I have no idea what this does. I just built and sized the GUI using NetBeans Scene Builder
         // I think this is just for spacing the text inside the "Right Words" pane
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        // This also adds the labels as child components to the jPanelRightWords
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanelRightWords);
+        jPanelRightWords.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabelRightWords)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_RightWords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelRightWordsCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -149,34 +151,35 @@ public class MyGUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel_RightWords))
+                    .addComponent(jLabelRightWords, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabelRightWordsCount))
                 .addContainerGap())
         );
 
 
         // Wrong words
-        jPanel3.setBackground(wrongWordsPannelColor); // Panel color
-        jLabel3.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel3.setForeground(mainColor); // Text color
-        jLabel3.setText("Wrong Words:");
+        jPanelWrongWords.setBackground(tertiaryColor); // Panel color
+        jLabelWrongWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
+        jLabelWrongWords.setForeground(mainTextColor); // Text color
+        jLabelWrongWords.setText("Wrong Words:");
 
-        jLabel_WrongWords.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
-        jLabel_WrongWords.setForeground(mainColor); // Number color
-        jLabel_WrongWords.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_WrongWords.setText(Integer.toString(myVars.getIntWrongWords())); // Set ammount of wrong words
+        jLabelWrongWordsCount.setFont(new java.awt.Font("Unispace", 1, 14)); // NOI18N
+        jLabelWrongWordsCount.setForeground(mainTextColor); // Number color
+        jLabelWrongWordsCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelWrongWordsCount.setText(Integer.toString(myVars.getIntWrongWords())); // Set ammount of wrong words
         
         // I have no idea what this does. I just built and sized the GUI using NetBeans Scene Builder
         // I think this is just for spacing the text inside the "Wrong Words" pane
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
+        // This also adds the labels as child components to the jPanelWrongWords
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanelWrongWords);
+        jPanelWrongWords.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(jLabelWrongWords)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_WrongWords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelWrongWordsCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -184,14 +187,14 @@ public class MyGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel_WrongWords))
+                    .addComponent(jLabelWrongWords, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabelWrongWordsCount))
                 .addContainerGap())
         );
 
 
         // Vocie Recognition Toggle
-        jRadioButton1_VoiceRecognition.setBackground(mainColor);
+        jRadioButton1_VoiceRecognition.setBackground(secondaryColor);
         jRadioButton1_VoiceRecognition.setFont(new java.awt.Font("Unispace", 1, 12)); // NOI18N
         jRadioButton1_VoiceRecognition.setForeground(mainTextColor); // Set text color
         jRadioButton1_VoiceRecognition.setText("Voice Recognition");
@@ -205,7 +208,7 @@ public class MyGUI extends javax.swing.JFrame {
         });
 
         // Add Word Button
-        jButton3_AddWord.setBackground(secondaryButtonColor); // Set panel color
+        jButton3_AddWord.setBackground(tertiaryColor); // Set panel color
         jButton3_AddWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jButton3_AddWord.setForeground(mainTextColor); // Set text color
         jButton3_AddWord.setText("Add a Word");
@@ -217,7 +220,7 @@ public class MyGUI extends javax.swing.JFrame {
         });
 
         // Remove Edit Word Button
-        jButton4_RemEditWord.setBackground(secondaryButtonColor); // Set panel color
+        jButton4_RemEditWord.setBackground(tertiaryColor); // Set panel color
         jButton4_RemEditWord.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jButton4_RemEditWord.setForeground(mainTextColor); // Set text color
         jButton4_RemEditWord.setText("Remove / Edit a Word");
@@ -239,9 +242,9 @@ public class MyGUI extends javax.swing.JFrame {
         jRadioButton2_EngToGer.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jRadioButton2_EngToGer.setSelected(!myVars.isGerToEngSelected()); // Read the state of the Toggle and set it to its opposite.
         jRadioButton2_EngToGer.setText("English -> German");
-        jRadioButton2_EngToGer.setBackground(mainColor); // Set background color
+        jRadioButton2_EngToGer.setBackground(secondaryColor); // Set background color
         jRadioButton2_EngToGer.setForeground(mainTextColor); // Set text color
-
+        jRadioButton2_EngToGer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButton2_EngToGer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2_EngToGerActionPerformed(evt);
@@ -253,24 +256,25 @@ public class MyGUI extends javax.swing.JFrame {
         jRadioButton3_GerToEng.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
         jRadioButton3_GerToEng.setSelected(myVars.isGerToEngSelected()); // Read the state of the Toggle and set it.
         jRadioButton3_GerToEng.setText("German -> English");
-        jRadioButton3_GerToEng.setBackground(mainColor); // Set background color
+        jRadioButton3_GerToEng.setBackground(secondaryColor); // Set background color
         jRadioButton3_GerToEng.setForeground(mainTextColor); // Set text color
+        jRadioButton3_GerToEng.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButton3_GerToEng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton3_EngToGerActionPerformed(evt);
             }
         });
         
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelLeftSideMenu);
+        jPanelLeftSideMenu.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jButton3_AddWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRightWords, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelWrongWords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4_RemEditWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButton1_VoiceRecognition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButton3_GerToEng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -284,9 +288,9 @@ public class MyGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelRightWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelWrongWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton1_VoiceRecognition)
@@ -392,7 +396,7 @@ public class MyGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelLeftSideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -407,7 +411,7 @@ public class MyGUI extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelLeftSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -420,12 +424,12 @@ public class MyGUI extends javax.swing.JFrame {
     public void setIntRightWords(int intRightWords) {
         myVars.setIntRightWords(intRightWords);
         config.save();
-        jLabel_RightWords.setText(Integer.toString(myVars.getIntRightWords()));
+        jLabelRightWordsCount.setText(Integer.toString(myVars.getIntRightWords()));
     }
     public void setIntWrongWords(int intWrongWords) {
         myVars.setIntWrongWords(intWrongWords);
         config.save();
-        jLabel_WrongWords.setText(Integer.toString(intWrongWords));
+        jLabelWrongWordsCount.setText(Integer.toString(intWrongWords));
     }
 
     // Event Handler Methods                                                                         
