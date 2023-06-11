@@ -1,3 +1,4 @@
+package handlers;
 public class MyVars {
     private int intRightWords;
     private int intWrongWords;

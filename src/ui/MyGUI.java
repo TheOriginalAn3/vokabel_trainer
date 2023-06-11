@@ -1,3 +1,4 @@
+package ui;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,8 +8,13 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class MyGUI extends javax.swing.JFrame {
+import handlers.Config;
+import handlers.MyVars;
+
+public class MyGUI extends JFrame {
     // TODO #7 Create missing UI elements for button clicks
     // Variables declaration - do not modify                     
     private javax.swing.ButtonGroup buttonGroup2;
