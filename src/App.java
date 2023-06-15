@@ -6,7 +6,7 @@ public class App {
         SpeechRecognition sr = SpeechRecognition.getInstance();
 
         //English -> Deutsch kommentar unten entfernen
-        //sr.startEngRecognizer();
+        sr.startEngRecognizer();
 
         //Deutsch -> English kommentar unten entfernen
         //sr.starGerRecognizer();

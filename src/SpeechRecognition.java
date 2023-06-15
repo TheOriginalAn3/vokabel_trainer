@@ -34,7 +34,7 @@ public class SpeechRecognition {
                 e.printStackTrace();
                 p.destroy();
             }
-            transcription = getTranscriptionFromPython();
+            //transcription = getTranscriptionFromPython();
         }
 
     public void startGerRecognizer() {
@@ -45,8 +45,9 @@ public class SpeechRecognition {
             e.printStackTrace();
             p.destroy();
         }
-        transcription = getTranscriptionFromPython();
+        //transcription = getTranscriptionFromPython();
     }
 
     // TODO Create a method to get the transcription from Python
+    
 }
