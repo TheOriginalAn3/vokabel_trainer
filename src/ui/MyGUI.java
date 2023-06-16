@@ -1,5 +1,6 @@
 package ui;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import handlers.Config;
 import handlers.MyVars;
@@ -207,8 +209,9 @@ public class MyGUI extends JFrame {
         jRadioButton1_VoiceRecognition.setToolTipText("!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
         jRadioButton1_VoiceRecognition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButton1_VoiceRecognition.setSelected(myVars.isVoiceToggleSelected()); // Set state (selected/deselected). This code calls the 
+        jRadioButton1_VoiceRecognition.setBorder(null);
         jRadioButton1_VoiceRecognition.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jRadioButton1_VoiceRecognitionActionPerformed(evt);
             }
         });
@@ -220,7 +223,7 @@ public class MyGUI extends JFrame {
         jButton3_AddWord.setText("Add a Word");
         jButton3_AddWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3_AddWord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton3_AddWordActionPerformed(evt);
             }
         });
@@ -232,7 +235,7 @@ public class MyGUI extends JFrame {
         jButton4_RemEditWord.setText("Remove / Edit a Word");
         jButton4_RemEditWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4_RemEditWord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jButton4_RemEditWordActionPerformed(evt);
             }
         });
@@ -252,7 +255,7 @@ public class MyGUI extends JFrame {
         jRadioButton2_EngToGer.setForeground(mainTextColor); // Set text color
         jRadioButton2_EngToGer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButton2_EngToGer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jRadioButton2_EngToGerActionPerformed(evt);
             }
         });
@@ -266,7 +269,7 @@ public class MyGUI extends JFrame {
         jRadioButton3_GerToEng.setForeground(mainTextColor); // Set text color
         jRadioButton3_GerToEng.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButton3_GerToEng.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jRadioButton3_EngToGerActionPerformed(evt);
             }
         });
@@ -333,6 +336,7 @@ public class MyGUI extends JFrame {
         jTextPane_ToTranslate.setAutoscrolls(false);
         jTextPane_ToTranslate.setBackground(secondaryButtonColor); // Set background color
         jScrollPane1.setViewportView(jTextPane_ToTranslate);
+        jScrollPane1.setBorder(null); // Removes White Border
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -369,9 +373,10 @@ public class MyGUI extends JFrame {
         jTextField1.setForeground(mainTextColor); // Set text color
         jTextField1.setBackground(secondaryButtonColor);
         jTextField1.setText("Translation");
+        jTextField1.setBorder(null); // Removes White Border
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
@@ -440,36 +445,36 @@ public class MyGUI extends JFrame {
 
     // Event Handler Methods                                                                         
     // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable
-    private void jRadioButton2_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {    
+    private void jRadioButton2_EngToGerActionPerformed(ActionEvent evt) {    
         System.out.println("EngToGer selected!");
         myVars.setGerToEngSelected(false);       
         config.save();                                   
     }
 
-    private void jRadioButton3_EngToGerActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void jRadioButton3_EngToGerActionPerformed(ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
         myVars.setGerToEngSelected(true);
         config.save();
     }
  
     // TODO #18 Start VoiceRecognition if VoiceRecogToggle is selected
-    private void jRadioButton1_VoiceRecognitionActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jRadioButton1_VoiceRecognitionActionPerformed(ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
         System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
         config.save();
     }
 
     // TODO #14 Add a way to input new words when "Add Word" is clicked
-    private void jButton3_AddWordActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3_AddWordActionPerformed(ActionEvent evt) {
         System.out.println("Add Words button clicked!");
     }
     
     // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit Word" is clicked
-    private void jButton4_RemEditWordActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton4_RemEditWordActionPerformed(ActionEvent evt) {
         System.out.println("Remove / Edit Word button clicked!");
     }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jTextField1ActionPerformed(ActionEvent evt) {
         inputText = jTextField1.getText();
         System.out.println("Text submited: " + inputText);
         jTextField1.setText("");
