@@ -114,35 +114,20 @@ public class MyNewGUI extends JFrame {
         translationInputField = new JTextField();
         jLabel_Translation = new JLabel();
 
-        initMainPane();
-        initLeftSideMenu();
-        initRightWrongWords();
-        initVoiceRecogToggle();
-        initButtons();
-        initLanguageSelect();
-        initVocabPane();
-
-        mainPane.setVisible(true);
-        this.setVisible(true);
-    }
-
-    private void initMainPane() {
         mainPane.setBackground(MAIN_COLOR);
         mainPane.setSize(WIDTH, HEIGHT);
         mainPane.setLocation(0, 0);
 
+        // MainPane
         this.add(mainPane);
-    }
 
-    private void initLeftSideMenu() {
+        // Left Side Menu
         jPanelLeftSideMenu.setBackground(SECONDARY_COLOR);
-        jPanelLeftSideMenu.setSize(500, 500);
-        jPanelLeftSideMenu.setLocation(10, 10);
-
+        jPanelLeftSideMenu.setSize(5000, 5000);
+        jPanelLeftSideMenu.setLocation(100, 100);
         mainPane.add(jPanelLeftSideMenu);
-    }
 
-    private void initRightWrongWords() {
+        // Right / Wrong Words
         // Right Words
         jPanelRightWords.setBackground(TERTIARY_COLOR); // Panel color
         jPanelRightWords.setSize(10, 10);
@@ -169,9 +154,9 @@ public class MyNewGUI extends JFrame {
         jLabel_WrongWordsCount.setForeground(MAIN_TEXT_COLOR); // Number color
         // jLabelWrongWordsCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_WrongWordsCount.setText(Integer.toString(myVars.getIntWrongWords())); // Set ammount of wrong words
-    }
 
-    private void initVoiceRecogToggle() {
+        mainPane.add(jPanelWrongWords);
+
         // Vocie Recognition Toggle
         voiceRecognitionToggle.setBackground(SECONDARY_COLOR);
         voiceRecognitionToggle.setFont(FONT); // NOI18N
@@ -187,9 +172,7 @@ public class MyNewGUI extends JFrame {
                 voiceRecognitionToggleClicked(evt);
             }
         });
-    }
 
-    private void initButtons() {
         // Add Word Button
         addWordButton.setBackground(TERTIARY_COLOR); // Set panel color
         addWordButton.setFont(FONT); // NOI18N
@@ -213,9 +196,7 @@ public class MyNewGUI extends JFrame {
                 editRemoveWordsButtonClicked(evt);
             }
         });
-    }
 
-    private void initLanguageSelect() {
         // Language Select Menu
         jLabel7.setFont(FONT); // NOI18N
         jLabel7.setText("Language Select:");
@@ -251,9 +232,7 @@ public class MyNewGUI extends JFrame {
                 gerToEngToggleActionPerformed(evt);
             }
         });
-    }
 
-    private void initVocabPane() {
         // Word Display Pane
         wordDisplayPane.setBackground(SECONDARY_COLOR);
 
@@ -295,6 +274,9 @@ public class MyNewGUI extends JFrame {
                 translationInputFieldActionPerformed(evt);
             }
         });
+
+        mainPane.setVisible(true);
+        this.setVisible(true);
     }
 
     // Setters

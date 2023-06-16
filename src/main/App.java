@@ -2,6 +2,7 @@ package main;
 
 import handlers.Config;
 import handlers.MyVars;
+import ui.MyGUI;
 import ui.MyNewGUI;
 
 public class App {
@@ -18,8 +19,8 @@ public class App {
         config.load();
 
         //testGUI myGUI = new GUI(600, 400, "Vocabulary App by Selin and Andrei");
-        // MyGUI myGUI = new MyGUI(myVars, config); //Create GUI
-        MyNewGUI myGUI = new MyNewGUI(myVars, config);
+        MyGUI myGUI = new MyGUI(myVars, config); //Create GUI
+        //MyNewGUI myGUI = new MyNewGUI(myVars, config);
         
         //Test
         System.out.println("Voice Recognition active: " + myVars.isVoiceToggleSelected());

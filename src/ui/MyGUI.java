@@ -118,7 +118,7 @@ public class MyGUI extends JFrame {
         // Main pannel
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vocabulary Trainer by Selin and Andrei");
-        setBackground(mainColor);
+        getContentPane().setBackground(mainColor);
         setSize(470, 245);
         setResizable(false);
         setName("GUI"); // NOI18N
