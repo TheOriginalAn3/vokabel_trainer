@@ -22,7 +22,6 @@ import handlers.Config;
 import handlers.MyVars;
 
 public class MyGUI extends JFrame {
-    // TODO #7 Create missing UI elements for button clicks
     // Variables declaration - do not modify                     
     private ButtonGroup buttonGroup2;
     private JButton jButton3_AddWord;
@@ -450,7 +449,7 @@ public class MyGUI extends JFrame {
     }
 
     // Event Handler Methods                                                                         
-    // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable
+    // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable @Selin-SenSei
     private void jRadioButton2_EngToGerActionPerformed(ActionEvent evt) {    
         System.out.println("EngToGer selected!");
         myVars.setGerToEngSelected(false);       
@@ -463,7 +462,7 @@ public class MyGUI extends JFrame {
         config.save();
     }
  
-    // TODO #18 Start VoiceRecognition if VoiceRecogToggle is selected
+    // TODO #18 Start VoiceRecognition if VoiceRecogToggle is selected @Selin-SenSei,@TheOriginalAn3
     private void jRadioButton1_VoiceRecognitionActionPerformed(ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
         System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
@@ -475,16 +474,20 @@ public class MyGUI extends JFrame {
         AddWordsUI addWordsUI = new AddWordsUI();
     }
     
-    // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit Word" is clicked
     private void jButton4_RemEditWordActionPerformed(ActionEvent evt) {
         System.out.println("Remove / Edit Word button clicked!");
         EditRemoveWordsUI editRemoveWordsUI = new EditRemoveWordsUI();
     }
 
+    // TODO: #24 Update right/wrong words based on user input @Selin-SenSei
     private void jTextField1ActionPerformed(ActionEvent evt) {
         inputText = jTextField1.getText();
         System.out.println("Text submited: " + inputText);
         jTextField1.setText("");
-        
+        showNewVocab();
+    }
+    // TODO #25 Show a random vocab in "jTextPane_ToTranslate" based on translation language after jTextField1ActionPerformed() @Selin-SenSei
+    private void showNewVocab() {
+        System.out.println("new vocab"); // Placeholder
     }
 }
