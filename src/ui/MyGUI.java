@@ -470,7 +470,6 @@ public class MyGUI extends JFrame {
         config.save();
     }
 
-    // TODO #14 Add a way to input new words when "Add Word" is clicked
     private void jButton3_AddWordActionPerformed(ActionEvent evt) {
         System.out.println("Add Words button clicked12!");
         AddWordsUI addWordsUI = new AddWordsUI();
@@ -479,6 +478,7 @@ public class MyGUI extends JFrame {
     // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit Word" is clicked
     private void jButton4_RemEditWordActionPerformed(ActionEvent evt) {
         System.out.println("Remove / Edit Word button clicked!");
+        EditRemoveWordsUI editRemoveWordsUI = new EditRemoveWordsUI();
     }
 
     private void jTextField1ActionPerformed(ActionEvent evt) {

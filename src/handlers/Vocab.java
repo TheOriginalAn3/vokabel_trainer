@@ -1,4 +1,5 @@
 package handlers;
+
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -99,6 +100,61 @@ public class Vocab {
             System.out.println("Error reading Files to Lists!");
             e.printStackTrace();
         }
+    }
+
+    // Returns an array with all vocabs. Dosnt need to
+    public String[][] getAllVocabsAsArray() {
+        String[][] vocabsArray = new String[engVocabList.size()][2];
+
+        for (int i = 0; i < engVocabList.size(); i++) {
+            vocabsArray[i][0] = engVocabList.get(i);
+            vocabsArray[i][1] = gerVocabList.get(i);
+        }
+
+        return vocabsArray;
+    }
+
+    public void updateVocabs(String[][] updatedVocabsArray) {
+        engVocabList.clear();
+        gerVocabList.clear();
+
+        try {
+            for (int i = 0; i < updatedVocabsArray.length; i++) {
+                engVocabList.add(updatedVocabsArray[i][0]);
+                gerVocabList.add(updatedVocabsArray[i][1]);
+            }
+
+            // Update English.txt File
+            BufferedWriter writerForEng = new BufferedWriter(new FileWriter(engVocabFile));
+            for (String vocab : engVocabList) {
+                writerForEng.write(vocab);
+                writerForEng.newLine();
+            }
+            writerForEng.close();
+
+            // Update German.txt File
+            BufferedWriter writerForGer = new BufferedWriter(new FileWriter(gerVocabFile));
+            for (String vocab : gerVocabList) {
+                writerForGer.write(vocab);
+                writerForGer.newLine();
+            }
+            writerForGer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // // Debug code to see if the lists get updated with the right words
+        // System.out.println("00000000000000000 ENG LIST 0000000000000000");
+        // for (String item : engVocabList) {
+        // System.out.println(item);
+        // }
+        // System.out.println("000000000000000000000000000000000");
+
+        // System.out.println("**************** GER LIST *****************");
+        // for (String item : gerVocabList) {
+        // System.out.println(item);
+        // }
+        // System.out.println("*********************************");
     }
 
     /*
