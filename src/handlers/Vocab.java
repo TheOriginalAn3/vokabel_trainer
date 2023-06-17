@@ -127,16 +127,20 @@ public class Vocab {
             // Update English.txt File
             BufferedWriter writerForEng = new BufferedWriter(new FileWriter(engVocabFile));
             for (String vocab : engVocabList) {
-                writerForEng.write(vocab);
-                writerForEng.newLine();
+                if (!vocab.isBlank()) {
+                    writerForEng.write(vocab);
+                    writerForEng.newLine();
+                }
             }
             writerForEng.close();
 
             // Update German.txt File
             BufferedWriter writerForGer = new BufferedWriter(new FileWriter(gerVocabFile));
             for (String vocab : gerVocabList) {
-                writerForGer.write(vocab);
-                writerForGer.newLine();
+                if (!vocab.isBlank()) {
+                    writerForGer.write(vocab);
+                    writerForGer.newLine();
+                }
             }
             writerForGer.close();
         } catch (IOException e) {

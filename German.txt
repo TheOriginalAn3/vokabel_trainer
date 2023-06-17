@@ -3,4 +3,5 @@ du
 er
 sie
 es
-albtraum
+Albtraum
+Sonne
