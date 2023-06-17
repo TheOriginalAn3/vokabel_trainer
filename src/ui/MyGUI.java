@@ -50,12 +50,9 @@ public class MyGUI extends JFrame {
     private MyVars myVars;
     private Config config;
 
-    // Color Variables set here once else new color obj will have to be created for each time a color i sused.
-    private Color mainColor = new java.awt.Color(0x221f3a); // Dark Purple
-    //private Color mainButtonColor = new java.awt.Color(0x624d35);
+    // Color Variables set here once else new color obj will have to be created for each time a color is used.
+    private Color mainColor = new java.awt.Color(0x221f3a);
     private Color mainTextColor = new java.awt.Color(0xcecdd8);
-    // private Color rightWordsPannelColor = new java.awt.Color(0x4ca06a);
-    // private Color wrongWordsPannelColor = new java.awt.Color(250, 117, 117);
     private Color secondaryButtonColor = new java.awt.Color(0x1f2223);
 
     private Color secondaryColor = new java.awt.Color(0x26233e);
@@ -214,6 +211,7 @@ public class MyGUI extends JFrame {
         jRadioButton1_VoiceRecognition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jRadioButton1_VoiceRecognition.setSelected(myVars.isVoiceToggleSelected()); // Set state (selected/deselected). This code calls the 
         jRadioButton1_VoiceRecognition.setBorder(null);
+        jRadioButton1_VoiceRecognition.setFocusable(false);
         jRadioButton1_VoiceRecognition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jRadioButton1_VoiceRecognitionActionPerformed(evt);
@@ -226,6 +224,7 @@ public class MyGUI extends JFrame {
         jButton3_AddWord.setForeground(mainTextColor); // Set text color
         jButton3_AddWord.setText("Add a Word");
         jButton3_AddWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3_AddWord.setFocusable(false);
         jButton3_AddWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton3_AddWordActionPerformed(evt);
@@ -238,6 +237,7 @@ public class MyGUI extends JFrame {
         jButton4_RemEditWord.setForeground(mainTextColor); // Set text color
         jButton4_RemEditWord.setText("Remove / Edit a Word");
         jButton4_RemEditWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4_RemEditWord.setFocusable(false);
         jButton4_RemEditWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton4_RemEditWordActionPerformed(evt);
@@ -258,6 +258,7 @@ public class MyGUI extends JFrame {
         jRadioButton2_EngToGer.setBackground(secondaryColor); // Set background color
         jRadioButton2_EngToGer.setForeground(mainTextColor); // Set text color
         jRadioButton2_EngToGer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton2_EngToGer.setFocusable(false);
         jRadioButton2_EngToGer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jRadioButton2_EngToGerActionPerformed(evt);
@@ -272,6 +273,7 @@ public class MyGUI extends JFrame {
         jRadioButton3_GerToEng.setBackground(secondaryColor); // Set background color
         jRadioButton3_GerToEng.setForeground(mainTextColor); // Set text color
         jRadioButton3_GerToEng.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton3_GerToEng.setFocusable(false);
         jRadioButton3_GerToEng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jRadioButton3_EngToGerActionPerformed(evt);
