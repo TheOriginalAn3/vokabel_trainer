@@ -114,10 +114,10 @@ public class Vocab {
 
     public static Vocab getInstance() {
         if (instance == null) {
-            System.out.println("MyVars Object not existent...");
+            System.out.println("Vocab Object not existent...");
             instance = new Vocab();
         } else {
-            System.out.println("MyVars Object already exists...");
+            System.out.println("Vocab Object already exists...");
         }
         System.out.println("Returning this instance");
         return instance;

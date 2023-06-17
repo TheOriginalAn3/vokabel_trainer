@@ -114,11 +114,11 @@ public class MyNewGUI extends JFrame {
         translationInputField = new JTextField();
         jLabel_Translation = new JLabel();
 
+
+        // MainPane
         mainPane.setBackground(MAIN_COLOR);
         mainPane.setSize(WIDTH, HEIGHT);
         mainPane.setLocation(0, 0);
-
-        // MainPane
         this.add(mainPane);
 
         // Left Side Menu
@@ -304,6 +304,8 @@ public class MyNewGUI extends JFrame {
     // TODO #14 Add a way to input new words when "Add Word" is clicked
     private void addWordButtonClicked(java.awt.event.ActionEvent evt) {
         System.out.println("Add Words button clicked!");
+        AddWordsUI addWordsUI = new AddWordsUI();
+        
     }
 
     // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit

@@ -7,11 +7,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-
 import javax.imageio.ImageIO;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 import handlers.Config;
 import handlers.MyVars;
@@ -19,27 +24,27 @@ import handlers.MyVars;
 public class MyGUI extends JFrame {
     // TODO #7 Create missing UI elements for button clicks
     // Variables declaration - do not modify                     
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton3_AddWord;
-    private javax.swing.JButton jButton4_RemEditWord;
-    private javax.swing.JLabel jLabelRightWords;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelWrongWords;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabelRightWordsCount;
-    private javax.swing.JLabel jLabelWrongWordsCount;
-    private javax.swing.JPanel jPanelLeftSideMenu;
-    private javax.swing.JPanel jPanelRightWords;
-    private javax.swing.JPanel jPanelWrongWords;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1_VoiceRecognition;
-    private javax.swing.JRadioButton jRadioButton2_EngToGer;
-    private javax.swing.JRadioButton jRadioButton3_GerToEng;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextPane jTextPane_ToTranslate;
+    private ButtonGroup buttonGroup2;
+    private JButton jButton3_AddWord;
+    private JButton jButton4_RemEditWord;
+    private JLabel jLabelRightWords;
+    private JLabel jLabel2;
+    private JLabel jLabelWrongWords;
+    private JLabel jLabel5;
+    private JLabel jLabel7;
+    private JLabel jLabelRightWordsCount;
+    private JLabel jLabelWrongWordsCount;
+    private JPanel jPanelLeftSideMenu;
+    private JPanel jPanelRightWords;
+    private JPanel jPanelWrongWords;
+    private JPanel jPanel4;
+    private JPanel jPanel5;
+    private JRadioButton jRadioButton1_VoiceRecognition;
+    private JRadioButton jRadioButton2_EngToGer;
+    private JRadioButton jRadioButton3_GerToEng;
+    private JScrollPane jScrollPane1;
+    private JTextField jTextField1;
+    private JTextPane jTextPane_ToTranslate;
 
     // Get access to variables from config file
     // Get access to save method to save Variable Changes
@@ -426,7 +431,8 @@ public class MyGUI extends JFrame {
         );
 
         pack();
-
+        // Show the UI in the middle of the screen
+        setLocationRelativeTo(null);
         // Set visible
         this.setVisible(true);
     }// </editor-fold>                        
@@ -466,7 +472,8 @@ public class MyGUI extends JFrame {
 
     // TODO #14 Add a way to input new words when "Add Word" is clicked
     private void jButton3_AddWordActionPerformed(ActionEvent evt) {
-        System.out.println("Add Words button clicked!");
+        System.out.println("Add Words button clicked12!");
+        AddWordsUI addWordsUI = new AddWordsUI();
     }
     
     // TODO #15 Add a way to edit or remove (a) specific word when "Remove/Edit Word" is clicked
