@@ -55,5 +55,10 @@ public class MyVars {
     public boolean isGerToEngSelected() {
         return isGerToEngSelected;
     }
-
+    public void erhoeheRichtigeWorter(){
+        intRightWords++;
+    }
+    public void erhoeheFalscheWorter(){
+        intWrongWords++;
+    }
 }

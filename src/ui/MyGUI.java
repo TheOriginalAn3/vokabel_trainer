@@ -502,7 +502,10 @@ public class MyGUI extends JFrame {
         inputText = jTextField1.getText();
         System.out.println("Text submited: " + inputText);
         jTextField1.setText("");
+        vocab.checkTranslation(inputText);
+        jLabelRightWordsCount.setText(String.valueOf(myVars.getIntRightWords()));
         showNewVocab();
+
     }
     // TODO #25 Show a random vocab in "jTextPane_ToTranslate" based on translation language after jTextField1ActionPerformed() @Selin-SenSei
     private void showNewVocab() {

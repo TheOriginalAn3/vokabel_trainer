@@ -12,6 +12,9 @@ import java.util.Random;
 // Use of Files and Paths imports suggested by Bing AI
 
 public class Vocab {
+
+    // MyVars Objekt
+    private MyVars myVars = MyVars.getInstance();
     // English words
     private String engVocabFile = "English.txt";
     private List<String> engVocabList;
@@ -63,16 +66,36 @@ public class Vocab {
         }
     }
 
-    // Returns an array with the engVocab in pos 0 and gerVocab in pos 1
+    // Returns a String with the engVocab in pos 0 and gerVocab in pos 1
     public String getRandomVocab(int i) {
         generateRandomNumber();
         vocab[0] = engVocabList.get(randomListPosition);
         vocab[1] = gerVocabList.get(randomListPosition);
-        if(i == 0){
+        if (i == 0) {
             return vocab[0];
-        }else{
+        } else {
             return vocab[1];
         }
+    }
+
+    
+    public void checkTranslation(String inputText) {
+        if (myVars.isGerToEngSelected()) {
+            if (inputText.equalsIgnoreCase(vocab[0])) {
+                myVars.erhoeheRichtigeWorter();
+            } else {
+                myVars.erhoeheFalscheWorter();
+            }
+
+        } else {
+            if (inputText.equalsIgnoreCase(vocab[1])) {
+                myVars.erhoeheRichtigeWorter();
+            } else {
+                myVars.erhoeheFalscheWorter();
+            }
+
+        }
+
     }
 
     // Generates a random number and returns it, if it hasnt been used before.
