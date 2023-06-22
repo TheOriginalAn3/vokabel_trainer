@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 
 import handlers.Config;
 import handlers.MyVars;
+import handlers.Vocab;
 
 public class MyGUI extends JFrame {
     // Variables declaration - do not modify                     
@@ -53,6 +54,7 @@ public class MyGUI extends JFrame {
     // Get access to save method to save Variable Changes
     private MyVars myVars;
     private Config config;
+    private Vocab vocab;
 
     // Color Variables set here once else new color obj will have to be created for each time a color is used.
     private final Color MAIN_COLOR = new java.awt.Color(0x221f3a);
@@ -73,6 +75,7 @@ public class MyGUI extends JFrame {
     // End of variables declaration       
 
     public MyGUI(MyVars myVars, Config config) {
+        vocab = Vocab.getInstance();
         this.myVars = myVars;
         this.config = config;
         initComponents();
@@ -461,18 +464,22 @@ public class MyGUI extends JFrame {
 
     // Event Handler Methods                                                                         
     // TODO #17 Change vocab translation language depending on isGerToEngSelected Variable @Selin-SenSei
-    private void jRadioButton2_EngToGerActionPerformed(ActionEvent evt) {    
+    private void jRadioButton2_EngToGerActionPerformed(ActionEvent evt) {
         System.out.println("EngToGer selected!");
         myVars.setGerToEngSelected(false);       
-        config.save();                                   
+        config.save(); 
+        //0 zeigt an das es ein englisches Vokabel angezeigt werden soll
+        jTextPane_ToTranslate.setText(vocab.getRandomVocab(0));                                  
     }
 
     private void jRadioButton3_EngToGerActionPerformed(ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
         myVars.setGerToEngSelected(true);
         config.save();
+        //1 gibt an das es ein deutsches Vokabel angezeigt werden soll
+        jTextPane_ToTranslate.setText(vocab.getRandomVocab(1));
     }
- 
+
     // TODO #18 Start VoiceRecognition if VoiceRecogToggle is selected @Selin-SenSei,@TheOriginalAn3
     private void jRadioButton1_VoiceRecognitionActionPerformed(ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());

@@ -64,11 +64,15 @@ public class Vocab {
     }
 
     // Returns an array with the engVocab in pos 0 and gerVocab in pos 1
-    public String[] getRandomVocab() {
+    public String getRandomVocab(int i) {
         generateRandomNumber();
         vocab[0] = engVocabList.get(randomListPosition);
         vocab[1] = gerVocabList.get(randomListPosition);
-        return vocab;
+        if(i == 0){
+            return vocab[0];
+        }else{
+            return vocab[1];
+        }
     }
 
     // Generates a random number and returns it, if it hasnt been used before.
