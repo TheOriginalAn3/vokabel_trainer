@@ -1,3 +1,5 @@
+package handlers;
+
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -10,6 +12,9 @@ import java.util.Random;
 // Use of Files and Paths imports suggested by Bing AI
 
 public class Vocab {
+
+    // MyVars Objekt
+    private MyVars myVars = MyVars.getInstance();
     // English words
     private String engVocabFile = "English.txt";
     private List<String> engVocabList;
@@ -61,12 +66,36 @@ public class Vocab {
         }
     }
 
-    // Returns an array with the engVocab in pos 0 and gerVocab in pos 1
-    public String[] getRandomVocab() {
+    // Returns a String with the engVocab in pos 0 and gerVocab in pos 1
+    public String getRandomVocab() {
         generateRandomNumber();
         vocab[0] = engVocabList.get(randomListPosition);
         vocab[1] = gerVocabList.get(randomListPosition);
-        return vocab;
+        if (myVars.isGerToEngSelected()) {
+            return vocab[1];
+        } else {
+            return vocab[0];
+        }
+    }
+
+    
+    public void checkTranslation(String inputText) {
+        if (myVars.isGerToEngSelected()) {
+            if (inputText.equalsIgnoreCase(vocab[0])) {
+                myVars.erhoeheRichtigeWorter();
+            } else {
+                myVars.erhoeheFalscheWorter();
+            }
+
+        } else {
+            if (inputText.equalsIgnoreCase(vocab[1])) {
+                myVars.erhoeheRichtigeWorter();
+            } else {
+                myVars.erhoeheFalscheWorter();
+            }
+
+        }
+
     }
 
     // Generates a random number and returns it, if it hasnt been used before.
@@ -100,6 +129,65 @@ public class Vocab {
         }
     }
 
+    // Returns an array with all vocabs. Dosnt need to
+    public String[][] getAllVocabsAsArray() {
+        String[][] vocabsArray = new String[engVocabList.size()][2];
+
+        for (int i = 0; i < engVocabList.size(); i++) {
+            vocabsArray[i][0] = engVocabList.get(i);
+            vocabsArray[i][1] = gerVocabList.get(i);
+        }
+
+        return vocabsArray;
+    }
+
+    public void updateVocabs(String[][] updatedVocabsArray) {
+        engVocabList.clear();
+        gerVocabList.clear();
+
+        try {
+            for (int i = 0; i < updatedVocabsArray.length; i++) {
+                engVocabList.add(updatedVocabsArray[i][0]);
+                gerVocabList.add(updatedVocabsArray[i][1]);
+            }
+
+            // Update English.txt File
+            BufferedWriter writerForEng = new BufferedWriter(new FileWriter(engVocabFile));
+            for (String vocab : engVocabList) {
+                if (!vocab.isBlank()) {
+                    writerForEng.write(vocab);
+                    writerForEng.newLine();
+                }
+            }
+            writerForEng.close();
+
+            // Update German.txt File
+            BufferedWriter writerForGer = new BufferedWriter(new FileWriter(gerVocabFile));
+            for (String vocab : gerVocabList) {
+                if (!vocab.isBlank()) {
+                    writerForGer.write(vocab);
+                    writerForGer.newLine();
+                }
+            }
+            writerForGer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // // Debug code to see if the lists get updated with the right words
+        // System.out.println("00000000000000000 ENG LIST 0000000000000000");
+        // for (String item : engVocabList) {
+        // System.out.println(item);
+        // }
+        // System.out.println("000000000000000000000000000000000");
+
+        // System.out.println("**************** GER LIST *****************");
+        // for (String item : gerVocabList) {
+        // System.out.println(item);
+        // }
+        // System.out.println("*********************************");
+    }
+
     /*
      * Use the same TikTok trick from MyVars to only allow a single object/instance
      * of this class
@@ -113,10 +201,10 @@ public class Vocab {
 
     public static Vocab getInstance() {
         if (instance == null) {
-            System.out.println("MyVars Object not existent...");
+            System.out.println("Vocab Object not existent...");
             instance = new Vocab();
         } else {
-            System.out.println("MyVars Object already exists...");
+            System.out.println("Vocab Object already exists...");
         }
         System.out.println("Returning this instance");
         return instance;

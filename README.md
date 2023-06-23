@@ -12,10 +12,10 @@ This is a school project 🏫. This File will also contain all necesarry [issue 
 >- [<span style="color:#cfd3d7">duplicate](https://github.com/TheOriginalAn3/vokabel_trainer/labels/duplicate) - Use this if codeblock, pull request or issue already exists.
 >- [<span style="color:#d876e3">frage](https://github.com/TheOriginalAn3/vokabel_trainer/labels/frage) - Use this when you have a question.
 >- [<span style="color:#008672">hilfe](https://github.com/TheOriginalAn3/vokabel_trainer/labels/hilfe) - Use this if you need help with an issue.
+>- [<span style="color:#794641">missing feature](https://github.com/TheOriginalAn3/vokabel_trainer/labels/missing%20feature) - Use this if if a feature is missing.
 >- [<span style="color:#a2eeef">verbesserung](https://github.com/TheOriginalAn3/vokabel_trainer/labels/verbesserung) Use this if you think the code can be written better.
 >- [<span style="color:#7b094a">vorschlag](https://github.com/TheOriginalAn3/vokabel_trainer/labels/vorschlag) - You should post the idea [here](https://github.com/TheOriginalAn3/vokabel_trainer/discussions/2). Othrewise use this if you have an idea for a new Feature. 
 >- [<span style="color:#ffffff">wontfix](https://github.com/TheOriginalAn3/vokabel_trainer/labels/wontfix) - Use this if the problem will not be fixed.
->- [<span style="color:#794641">missing feature](https://github.com/TheOriginalAn3/vokabel_trainer/labels/missing%20feature) - Use this if if a feature is missing.
 # **Getting Started**
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 

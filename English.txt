@@ -1,5 +1,7 @@
-ich 
-du
-er
-sie
-es
+me
+you
+he
+she
+it
+nightmare
+sun

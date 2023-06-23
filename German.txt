@@ -1,5 +1,7 @@
-me
-you
-he
-she
-it
+ich 
+du
+er
+sie
+es
+Albtraum
+Sonne
