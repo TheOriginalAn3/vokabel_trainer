@@ -504,7 +504,7 @@ public class MyGUI extends JFrame {
         jTextField1.setText("");
         vocab.checkTranslation(inputText);
         jLabelRightWordsCount.setText(String.valueOf(myVars.getIntRightWords()));
-        jLabelRightWordsCount.setText(String.valueOf(myVars.getIntWrongWords()));
+        jLabelWrongWordsCount.setText(String.valueOf(myVars.getIntWrongWords()));
         showNewVocab();
 
     }
