@@ -34,27 +34,11 @@ public class SpeechRecognition {
         try {
             pb = new ProcessBuilder("python", "EngPythonRecognizer.py");
             p = pb.start();
-            System.out.println("An2");
-            Socket socket = new Socket();
-            int port = 1303;
-
-            System.out.println("Hingewiesener Port:" + port);
-
-            InputStream inputStream = socket.getInputStream();
-            byte[] buffer = new byte[1024];
-            int bytesRead = inputStream.read(buffer);
-
-            String receivedString = new String(buffer, 0, bytesRead);
-            System.out.println("Von PYthon geschickt:" + receivedString);
-
-            socket.close();
-        } catch (IOException e) {
-            // System.out.println("An1");
-            e.printStackTrace();
-            p.destroy();
+            getStringFromPython();
         } catch (Exception a) {
             // System.out.println("An0");
             a.printStackTrace();
+            p.destroy();
         }
         // transcription = getTranscriptionFromPython();
     }
@@ -63,10 +47,30 @@ public class SpeechRecognition {
         try {
             pb = new ProcessBuilder("python", "GerPythonRecognizer.py");
             p = pb.start();
-        } catch (IOException e) {
+            getStringFromPython();
+        } catch (Exception e) {
             e.printStackTrace();
             p.destroy();
         }
         // transcription = getTranscriptionFromPython();
+    }
+    private void getStringFromPython() {
+        System.out.println("An2");
+            Socket socket = new Socket();
+            int port = 1303;
+
+            System.out.println("Hingewiesener Port:" + port);
+
+            try (InputStream inputStream = socket.getInputStream()) {
+                byte[] buffer = new byte[1024];
+                int bytesRead = inputStream.read(buffer);
+
+                String receivedString = new String(buffer, 0, bytesRead);
+                System.out.println("Von PYthon geschickt:" + receivedString);
+                socket.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
     }
 }
