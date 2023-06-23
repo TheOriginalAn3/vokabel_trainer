@@ -468,16 +468,14 @@ public class MyGUI extends JFrame {
         System.out.println("EngToGer selected!");
         myVars.setGerToEngSelected(false);       
         config.save(); 
-        //0 zeigt an das es ein englisches Vokabel angezeigt werden soll
-        jTextPane_ToTranslate.setText(vocab.getRandomVocab(0));                                  
+        jTextPane_ToTranslate.setText(vocab.getRandomVocab());                                  
     }
 
     private void jRadioButton3_EngToGerActionPerformed(ActionEvent evt) {                                              
         System.out.println("GerToEng selected!");
         myVars.setGerToEngSelected(true);
         config.save();
-        //1 gibt an das es ein deutsches Vokabel angezeigt werden soll
-        jTextPane_ToTranslate.setText(vocab.getRandomVocab(1));
+        jTextPane_ToTranslate.setText(vocab.getRandomVocab());
     }
 
     // TODO #18 Start VoiceRecognition if VoiceRecogToggle is selected @Selin-SenSei,@TheOriginalAn3
@@ -510,6 +508,6 @@ public class MyGUI extends JFrame {
     }
     // TODO #25 Show a random vocab in "jTextPane_ToTranslate" based on translation language after jTextField1ActionPerformed() @Selin-SenSei
     private void showNewVocab() {
-        System.out.println("new vocab"); // Placeholder
+        jTextPane_ToTranslate.setText(vocab.getRandomVocab());
     }
 }

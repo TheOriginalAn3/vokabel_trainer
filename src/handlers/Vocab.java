@@ -67,14 +67,14 @@ public class Vocab {
     }
 
     // Returns a String with the engVocab in pos 0 and gerVocab in pos 1
-    public String getRandomVocab(int i) {
+    public String getRandomVocab() {
         generateRandomNumber();
         vocab[0] = engVocabList.get(randomListPosition);
         vocab[1] = gerVocabList.get(randomListPosition);
-        if (i == 0) {
-            return vocab[0];
-        } else {
+        if (myVars.isGerToEngSelected()) {
             return vocab[1];
+        } else {
+            return vocab[0];
         }
     }
 
