@@ -352,7 +352,7 @@ public class MyGUI extends JFrame {
         jTextPane_ToTranslate.setEditable(false);
         jTextPane_ToTranslate.setFont(MAIN_FONT); // NOI18N
         jTextPane_ToTranslate.setForeground(MAIN_TEXT_COLOR); // Set text color
-        jTextPane_ToTranslate.setText("to do sth without knowing what youre doing");
+        showNewVocab();
         jTextPane_ToTranslate.setBackground(SECONDARY_BUTTON_COLOR); // Set background color
         jScrollPane1.setViewportView(jTextPane_ToTranslate);
         jScrollPane1.setBorder(null); // Removes White Border
