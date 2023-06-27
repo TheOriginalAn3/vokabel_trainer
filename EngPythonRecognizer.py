@@ -5,15 +5,15 @@ import socket
 # ******************* DEIN CODE COMMT HIER *******************
 #platzhalter ändern
 
-soc = socket.sock()
-host = "localhost"
-port = 1303
-soc.bind((host, port))
-print("Hingewiesener Port:", port)
-c, addr = soc.accept()
 
-String = "Hallo, Andrei"
-binaer = String.encode()
+host = "localhost"
+port = 65432
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM)as sock:
+    sock.connect((host, port))
+    
+
+
 
 # obtain audio from the microphone
 r = sr.Recognizer()
@@ -23,7 +23,7 @@ with sr.Microphone() as source:
         # recognize speech using Google Speech Recognition
         transcription = r.recognize_google(audio, language='en-US') # For American English recognition
         print(transcription)
-        c.send(String)
+        sock.sendall(b"Hallo Andrei")
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
         
