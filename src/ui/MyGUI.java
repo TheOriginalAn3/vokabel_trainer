@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 
 import handlers.Config;
 import handlers.MyVars;
+import handlers.SpeechRecognition;
 import handlers.Vocab;
 
 public class MyGUI extends JFrame {
@@ -55,6 +56,7 @@ public class MyGUI extends JFrame {
     private MyVars myVars;
     private Config config;
     private Vocab vocab;
+    private SpeechRecognition speechRecognition;
 
     // Color Variables set here once else new color obj will have to be created for each time a color is used.
     private final Color MAIN_COLOR = new java.awt.Color(0x221f3a);
@@ -78,6 +80,7 @@ public class MyGUI extends JFrame {
         vocab = Vocab.getInstance();
         this.myVars = myVars;
         this.config = config;
+        speechRecognition = SpeechRecognition.getInstance();
         initComponents();
     }
 
@@ -482,6 +485,13 @@ public class MyGUI extends JFrame {
     private void jRadioButton1_VoiceRecognitionActionPerformed(ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
         System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
+        if(myVars.isVoiceToggleSelected()){
+            if(myVars.isGerToEngSelected()){
+                speechRecognition.startEngRecognizer();
+            }else{
+                speechRecognition.startGerRecognizer();
+            }
+        }
         config.save();
     }
 
