@@ -1,8 +1,10 @@
 package handlers;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class SpeechRecognition {
@@ -55,18 +57,24 @@ public class SpeechRecognition {
         }
         // transcription = getTranscriptionFromPython();
     }
+
     private void getStringFromPython() {
         System.out.println("An2");
-            Socket socket = new Socket();
-            int port = 65432;
-
+        int port = 65432;
+        Socket socket;
+        try {
+            socket = new Socket("localhost", port);
             System.out.println("Hingewiesener Port:" + port);
-            try (InputStream input = socket.getInputStream()) {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                transcription = reader.readLine();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out.println("Hello from Java!");
+            String line = in.readLine();
+            System.out.println(line);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 }
