@@ -58,17 +58,12 @@ public class SpeechRecognition {
     private void getStringFromPython() {
         System.out.println("An2");
             Socket socket = new Socket();
-            int port = 1303;
+            int port = 65432;
 
             System.out.println("Hingewiesener Port:" + port);
-
-            try (InputStream inputStream = socket.getInputStream()) {
-                byte[] buffer = new byte[1024];
-                int bytesRead = inputStream.read(buffer);
-
-                String receivedString = new String(buffer, 0, bytesRead);
-                System.out.println("Von PYthon geschickt:" + receivedString);
-                socket.close();
+            try (InputStream input = socket.getInputStream()) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                transcription = reader.readLine();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
