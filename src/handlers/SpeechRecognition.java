@@ -75,6 +75,9 @@ public class SpeechRecognition {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+    
+    }
+    public boolean isAlive() {
+        return p.isAlive();
     }
 }
