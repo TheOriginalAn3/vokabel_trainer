@@ -63,6 +63,7 @@ public class SpeechRecognition {
         int port = 65432;
         Socket socket;
         try {
+            Thread.sleep(1000); // Socket verbindung ist zu schnell 😊
             socket = new Socket("localhost", port);
             System.out.println("Hingewiesener Port:" + port);
 
@@ -74,10 +75,13 @@ public class SpeechRecognition {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     
     }
-    public boolean isAlive() {
-        return p.isAlive();
+    public Process getP() {
+        return p;
     }
 }

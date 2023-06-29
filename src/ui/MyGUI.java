@@ -485,12 +485,16 @@ public class MyGUI extends JFrame {
     private void jRadioButton1_VoiceRecognitionActionPerformed(ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
         System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
+        System.out.println(speechRecognition.getP());
         if(myVars.isVoiceToggleSelected()){
             if(myVars.isGerToEngSelected()){
                 speechRecognition.startEngRecognizer();
             }else{
                 speechRecognition.startGerRecognizer();
             }
+        }
+        if (myVars.isVoiceToggleSelected()) {
+            jRadioButton1_VoiceRecognition.doClick();
         }
         config.save();
     }
