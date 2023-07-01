@@ -9,6 +9,7 @@ import socket
 
 host = "localhost"
 port = 65432
+transcription = ""
 
 # DEBUG: Da keine Konsole zu verfügung
 with open('running.txt', 'w') as f:
@@ -35,18 +36,18 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM)as sock:
                 transcription = r.recognize_google(audio, language='en-US') # For English (American) recognition
                 # DEBUG
                 # f.write(transcription)
-                conn.sendall(bytes(transcription, 'utf-8'))
+                conn.sendall(bytes(transcription, 'utf-8')) # type: ignore
             except sr.UnknownValueError:
                 # DEBUG
-                f.write("Google Speech Recognition could not understand audio")
-                # conn.sendall(bytes("Google Speech Recognition could not understand audio", 'utf-8'))
+                # f.write("Google Speech Recognition could not understand audio")
+                conn.sendall(bytes("Google Speech Recognition could not understand audio", 'utf-8'))
                 
             except sr.RequestError as e:
                 # DEBUG
-                f.write("Could not request results from Google Speech Recognition service")
-                # conn.sendall(bytes("Could not request results from Google Speech Recognition service", 'utf-8'))
+                # f.write("Could not request results from Google Speech Recognition service")
+                conn.sendall(bytes("Could not request results from Google Speech Recognition service", 'utf-8'))
             
-            socket.close()  
+            socket.close()   # type: ignore
         sys.exit(0) # Programm schliesst von selber. Mit java neustarten falls nötig
         # ******************* HIER NICHTS SCHREIBEN *******************
         
