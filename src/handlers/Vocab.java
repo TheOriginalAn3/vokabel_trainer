@@ -78,7 +78,14 @@ public class Vocab {
         }
     }
 
-    
+    public String getTranslation() {
+        if (myVars.isGerToEngSelected()) {
+            return vocab[0];
+        } else {
+            return vocab[1];
+        }
+    }
+
     public void checkTranslation(String inputText) {
         if (myVars.isGerToEngSelected()) {
             if (inputText.equalsIgnoreCase(vocab[0])) {

@@ -2,21 +2,18 @@ package handlers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 public class SpeechRecognition {
     private static SpeechRecognition instance = null;
     private ProcessBuilder pb;
     private Process p;
-    private String transcription;
+    private String stringFromPython;
 
-    // Trick I saw on TikTok (Singleton method to only allow one object of this
-    // class to exist)
+    // Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
     private SpeechRecognition() {
-        // Normal constructor
+        
     }
 
     public static SpeechRecognition getInstance() {
@@ -29,24 +26,46 @@ public class SpeechRecognition {
         System.out.println("Returning this instance");
         return instance;
     }
-    // This marks the end of the trick I saw on TikTok
+    // Ende des Tricks, den ich auf TikTok gesehen habe.
 
-    // TODO #19 Create a programm to start the Python Script
-    public void startEngRecognizer() {
-        // System.out.println("An3");
+    // Nur Python Skript starten
+    // public void startEngRecognizer() {
+    //     System.out.println("Starting English Recognizer");
+    //     try {
+    //         pb = new ProcessBuilder("python", "EngPythonRecognizer.py");
+    //         p = pb.start();
+    //     } catch (Exception a) {
+    //         a.printStackTrace();
+    //         p.destroy();
+    //     }
+    // }
+
+    // public void startGerRecognizer() {
+    //     System.out.println("Starting German Recognizer");
+    //     try {
+    //         pb = new ProcessBuilder("python", "GerPythonRecognizer.py");
+    //         p = pb.start();
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //         p.destroy();
+    //     }
+    // }
+
+    public String startEngRecognizer() {
+        System.out.println("Starting English Recognizer");
         try {
             pb = new ProcessBuilder("python", "EngPythonRecognizer.py");
             p = pb.start();
             getStringFromPython();
         } catch (Exception a) {
-            // System.out.println("An0");
             a.printStackTrace();
             p.destroy();
         }
-        // transcription = getTranscriptionFromPython();
+        return stringFromPython;
     }
 
-    public void startGerRecognizer() {
+    public String startGerRecognizer() {
+        System.out.println("Starting German Recognizer");
         try {
             pb = new ProcessBuilder("python", "GerPythonRecognizer.py");
             p = pb.start();
@@ -55,11 +74,10 @@ public class SpeechRecognition {
             e.printStackTrace();
             p.destroy();
         }
-        // transcription = getTranscriptionFromPython();
+        return stringFromPython;
     }
 
-    private void getStringFromPython() {
-        System.out.println("An2");
+    private String getStringFromPython() {
         int port = 65432;
         Socket socket;
         try {
@@ -67,20 +85,22 @@ public class SpeechRecognition {
             socket = new Socket("localhost", port);
             System.out.println("Hingewiesener Port:" + port);
 
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            //PrintWriter out = new PrintWriter(socket.getOutputStream(), true); // Java -> Python
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            out.println("Hello from Java!");
-            String line = in.readLine();
-            System.out.println(line);
+            //out.println("Hello from Java!"); // Java -> Python
+            stringFromPython = in.readLine();
+            System.out.println("From Python: " + stringFromPython);
+
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    
+        
+        return stringFromPython;
     }
+
+    // DEBUG Methode
     public Process getP() {
         return p;
     }

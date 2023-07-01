@@ -7,10 +7,11 @@ public class MyVars {
 
     private static MyVars instance = null;
 
-    // Trick I saw on TikTok (Singleton method to only allow one object of this class to exist)
+    // Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
     private MyVars() {
-        // Exists only to defeat instantiation.
+        
     }
+    
     public static MyVars getInstance() {
         if(instance == null) {
             System.out.println("MyVars Object not existent...");
@@ -21,9 +22,10 @@ public class MyVars {
         System.out.println("Returning this instance");
         return instance;
     }
-    // This marks the end of the trick i saw on TikTok
+    // Ende des Tricks, den ich auf TikTok gesehen habe.
 
 
+    // Setters
     public void setIntRightWords(int intRightWords) {
         this.intRightWords = intRightWords;
     }
@@ -40,6 +42,7 @@ public class MyVars {
         this.isGerToEngSelected = isGerToEngSelected;
     }
     
+    // Getters
     public int getIntRightWords() {
         return intRightWords;
     }
@@ -55,6 +58,8 @@ public class MyVars {
     public boolean isGerToEngSelected() {
         return isGerToEngSelected;
     }
+
+    // Methoden
     public void erhoeheRichtigeWorter(){
         intRightWords++;
     }

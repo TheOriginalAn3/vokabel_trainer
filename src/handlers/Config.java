@@ -10,12 +10,14 @@ public class Config {
 
     private MyVars variables;
 
-    private static Config instance = null;
-    // Gets MyVars object/instance if one already exists. Creates new MyVars object/instance if one dosn't already exist.
-    // Trick I saw on TikTok (Singleton method to only allow one object of this class to exist)
+    private static Config instance = null; // Platzhalter. Reserviert Platz im Speicher für eine Config-Instanz. Nicht unbedingt nötig
+
+    // MyVars liefert eine MyVars-Instanz, falls bereits eine vorhanden ist. MyVars Konstruktor erzeugt eine neue MyVars-Instanz, wenn noch keine existiert.
+    // Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
     private Config() {
         this.variables = MyVars.getInstance();
     }
+    
     public static Config getInstance() {
         if(instance == null) {
             System.out.println("Config Object not existent...");
@@ -26,11 +28,11 @@ public class Config {
         System.out.println("Returning this instance");
         return instance;
     }
-    // This marks the end of the trick i saw on TikTok
+    // Ende des Tricks, den ich auf TikTok gesehen habe.
 
 
-    /*
-     * PLEASE FOLLOW tHIS ORDER WHEN SAVING OR LOADING VARIABLES:
+/*
+     * BITTE BEFOLGEN SIE DIESE REIHE BEIM SPEICHERN ODER LADEN VON VARIABELN:
      * 1. intRightWords
      * 2. intWrongWords
      * 3. isVoiceToggleSelected
@@ -58,7 +60,7 @@ public class Config {
 
             bw.close();
 
-            // Test: Print saved variables
+            // DEBUG: Print saved variables to console
             System.out.println("Printing Variables after saving...");
             printVars();
         } catch (IOException e) {
@@ -84,7 +86,7 @@ public class Config {
 
             br.close();
 
-            // Print Variables for test
+            // DEBUG: Print Variables loaded from file to console
             System.out.println("Printing variables loaded into memory from file...");
             printVars();
         } catch (FileNotFoundException e) {
@@ -94,6 +96,7 @@ public class Config {
         }
     }
 
+    // DEBUG Methode
     public void printVars() {
         System.out.println("intRightWords: " + variables.getIntRightWords());
         System.out.println("intWrongWords: " + variables.getIntWrongWords());
