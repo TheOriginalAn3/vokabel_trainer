@@ -11,7 +11,7 @@ public class SpeechRecognition {
     private Process p;
     private String stringFromPython;
 
-    // Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
+    // 🗣️ Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
     private SpeechRecognition() {
         
     }
@@ -26,7 +26,7 @@ public class SpeechRecognition {
         System.out.println("Returning this instance");
         return instance;
     }
-    // Ende des Tricks, den ich auf TikTok gesehen habe.
+    // 🗣️ Ende des Tricks, den ich auf TikTok gesehen habe.
 
     // Nur Python Skript starten
     // public void startEngRecognizer() {

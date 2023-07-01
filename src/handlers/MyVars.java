@@ -5,9 +5,9 @@ public class MyVars {
     private boolean isVoiceToggleSelected;
     private boolean isGerToEngSelected;
 
-    private static MyVars instance = null;
+    private static MyVars instance = null; // 🗣️ Platzhalter. Reserviert Platz im Speicher für diese MyVars-Instanz. Nicht unbedingt nötig
 
-    // Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
+    // 🗣️ Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
     private MyVars() {
         
     }
@@ -22,7 +22,7 @@ public class MyVars {
         System.out.println("Returning this instance");
         return instance;
     }
-    // Ende des Tricks, den ich auf TikTok gesehen habe.
+    // 🗣️ Ende des Tricks, den ich auf TikTok gesehen habe.
 
 
     // Setters

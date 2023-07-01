@@ -10,10 +10,10 @@ public class Config {
 
     private MyVars variables;
 
-    private static Config instance = null; // Platzhalter. Reserviert Platz im Speicher für eine Config-Instanz. Nicht unbedingt nötig
+    private static Config instance = null; // 🗣️ Platzhalter. Reserviert Platz im Speicher für diese Config-Instanz. Nicht unbedingt nötig
 
-    // MyVars liefert eine MyVars-Instanz, falls bereits eine vorhanden ist. MyVars Konstruktor erzeugt eine neue MyVars-Instanz, wenn noch keine existiert.
-    // Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
+    // 🗣️ MyVars liefert eine MyVars-Instanz, falls bereits eine vorhanden ist. MyVars Konstruktor erzeugt eine neue MyVars-Instanz, wenn noch keine existiert.
+    // 🗣️ Trick, den ich auf TikTok gesehen habe (Singleton-Methode, um nur ein einziges Objekt dieser Klasse existieren zu lassen).
     private Config() {
         this.variables = MyVars.getInstance();
     }
@@ -28,11 +28,11 @@ public class Config {
         System.out.println("Returning this instance");
         return instance;
     }
-    // Ende des Tricks, den ich auf TikTok gesehen habe.
+    // 🗣️ Ende des Tricks, den ich auf TikTok gesehen habe.
 
 
 /*
-     * BITTE BEFOLGEN SIE DIESE REIHE BEIM SPEICHERN ODER LADEN VON VARIABELN:
+     * BITTE DIESE REIHENFOLGE BEIM SPEICHERN ODER LADEN VON VARIABELN:
      * 1. intRightWords
      * 2. intWrongWords
      * 3. isVoiceToggleSelected

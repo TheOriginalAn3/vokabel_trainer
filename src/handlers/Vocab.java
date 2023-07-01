@@ -4,17 +4,20 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+
+// 🗣️ Verwendung von Files and Paths (Importe), von Bing AI vorgeschlagen
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-// Use of Files and Paths imports suggested by Bing AI
 
 public class Vocab {
 
     // MyVars Objekt
     private MyVars myVars = MyVars.getInstance();
+
     // English words
     private String engVocabFile = "English.txt";
     private List<String> engVocabList;
@@ -26,22 +29,24 @@ public class Vocab {
     // Random vocab
     private String[] vocab = { "engWord", "gerWord" };
 
-    // ArrayList is used to create a resizable array.
-    // Used to make sure no dupplicate random numbers are used
+    // 🗣️ ArrayList wird verwendet, um ein größenveränderbares "Array" zu erstellen.
+    // 🗣️ Wird verwendet, um sicherzustellen, dass keine doppelten Zufallszahlen verwendet werden
     private List<Integer> generatedNumbers = new ArrayList<>();
+
     // Random number generator
     private Random random = new Random();
+
     // Randomly generated number
     private int randomListPosition;
 
     public void addNewWord(String engWord, String gerWord) {
 
-        // Probably not necessary but added just to be safe.
-        // Updates the Lists in memory with the words/sentences from the corresponding
-        // files.
+        // 🗣️ Wahrscheinlich nicht notwendig, aber sicherheitshalber hinzugefügt.
+        // 🗣️ Aktualisiert die Listen im Speicher mit den Wörtern/Sätzen aus den entsprechenden
+        // 🗣️ Dateien.
         readFilesToLists();
 
-        // New Words get added to the Lists
+        // 🗣️ Neue Wörter werden zu den Listen hinzugefügt
         try {
             engVocabList.add(engWord);
             gerVocabList.add(gerWord);
@@ -66,7 +71,7 @@ public class Vocab {
         }
     }
 
-    // Returns a String with the engVocab in pos 0 and gerVocab in pos 1
+    // 🗣️ Liefert einen String mit dem engVocab an Position 0 und dem gerVocab an Position 1
     public String getRandomVocab() {
         generateRandomNumber();
         vocab[0] = engVocabList.get(randomListPosition);
@@ -105,7 +110,7 @@ public class Vocab {
 
     }
 
-    // Generates a random number and returns it, if it hasnt been used before.
+    // 🗣️ Erzeugt eine Zufallszahl und gibt sie zurück, wenn sie noch nicht verwendet wurde.
     private int generateRandomNumber() {
         if (generatedNumbers.size() == engVocabList.size()) {
             generatedNumbers.clear();

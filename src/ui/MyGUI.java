@@ -28,7 +28,7 @@ import handlers.SpeechRecognition;
 import handlers.Vocab;
 
 public class MyGUI extends JFrame {
-    // Variablendeklaration - reserviert Platz im Speicher
+    // 🗣️ Variablendeklaration - reserviert Platz im Speicher
     private ButtonGroup buttonGroup2;
     private JButton jButton3_AddWord;
     private JButton jButton4_RemEditWord;
@@ -47,36 +47,36 @@ public class MyGUI extends JFrame {
     private JRadioButton jRadioButton1_VoiceRecognition;
     private JRadioButton jRadioButton2_EngToGer;
     private JRadioButton jRadioButton3_GerToEng;
-    private JScrollPane jScrollPane1;
-    private JTextField jTextField1;
+    private JScrollPane jScrollPane;
+    private JTextField jTextField;
     private JTextPane jTextPane_ToTranslate;
 
-    // Zugriff auf Variablen aus der Konfigurationsdatei holen
+    // 🗣️ Zugriff auf Variablen aus der Konfigurationsdatei holen
     private MyVars myVars;
-    // Zugriff auf die Speichermethode zum Speichern von Variablenänderungen
+    // 🗣️ Zugriff auf die Speichermethode zum Speichern von Variablenänderungen
     private Config config;
-    // Zugriff auf Vocab
+    // 🗣️ Zugriff auf Vocab
     private Vocab vocab;
-    // Zugriff auf SpeechRecognition
+    // 🗣️ Zugriff auf SpeechRecognition
     private SpeechRecognition speechRecognition;
 
-    // Farbvariablen werden hier einmal definiert, sonst muss jedes Mal, wenn eine
-    // Farbe verwendet wird, ein neues Farbobjekt erstellt werden.
+    // 🗣️ Farbvariablen werden hier einmal definiert, sonst muss jedes Mal, wenn eine
+    // 🗣️ Farbe verwendet wird, ein neues Farbobjekt erstellt werden.
     private final Color MAIN_COLOR = new java.awt.Color(0x221f3a);
     private final Color MAIN_TEXT_COLOR = new java.awt.Color(0xcecdd8);
     private final Color SECONDARY_BUTTON_COLOR = new java.awt.Color(0x1f2223);
     private final Color SECONDARY_COLOR = new java.awt.Color(0x26233e);
     private final Color TERTIARY_COLOR = new java.awt.Color(0x2f2b4c);
 
-    // Benutzereingaben von jTextField
+    // 🗣️ Benutzereingaben von jTextField
     private String inputText;
 
-    // Font-Variablen werden hier einmal definiert, sonst muss jedes Mal, wenn eine
-    // Farbe verwendet wird, ein neues Font-Obj erstellt werden.
+    // 🗣️ Font-Variablen werden hier einmal definiert, sonst muss jedes Mal, wenn eine
+    // 🗣️ Farbe verwendet wird, ein neues Font-Obj erstellt werden.
     private final Font MAIN_FONT = new Font("Unispace", 1, 14);
     private final Font SECONDARY_FONT = new Font("Unispace", 1, 12);
 
-    // Mauszeiger
+    // 🗣️ Mauszeiger
     private final Cursor HAND_POINTER = new Cursor(Cursor.HAND_CURSOR);
 
     public MyGUI(MyVars myVars, Config config) {
@@ -88,9 +88,10 @@ public class MyGUI extends JFrame {
         initComponents();
     }
 
-    // Methode gestohlen von einem Spielprojekt, an dem ich arbeite
-    // Link für das Github-Repositorium:
-    // https://github.com/TheOriginalAn3/Some2DGame/blob/master/src/main/ImageHandler.java
+    // 🗣️ Methode gestohlen von einem Spielprojekt, an dem ich arbeite.
+    // 🗣️ Ganz genau kann ich das nicht mehr erklären da es schon ne weile her war
+    // 🗣️ Link für das Github-Repositorium:
+    // 🗣️ https://github.com/TheOriginalAn3/Some2DGame/blob/master/src/main/ImageHandler.java
     public static BufferedImage readImage(String pathToImg) {
         try {
             BufferedImage img = null;
@@ -124,10 +125,10 @@ public class MyGUI extends JFrame {
         jLabel7 = new JLabel();
         jPanel4 = new JPanel();
         jLabel5 = new JLabel();
-        jScrollPane1 = new JScrollPane();
+        jScrollPane = new JScrollPane();
         jTextPane_ToTranslate = new JTextPane();
         jPanel5 = new JPanel();
-        jTextField1 = new JTextField();
+        jTextField = new JTextField();
         jLabel2 = new JLabel();
 
         // Main pannel
@@ -154,12 +155,12 @@ public class MyGUI extends JFrame {
         jLabelRightWordsCount.setText(Integer.toString(myVars.getIntRightWords())); // Set ammount of right words
 
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
-        // Ich habe keine Ahnung, was das macht 😅. Ich habe die GUI mithilfe von
-        // NetBeans Scene Builder erstellt.
-        // Ich denke, dies ist nur für den Abstand des Textes innerhalb des Bereichs
-        // "Right Words".
-        // Ich denke dies fügt auch die Beschriftungen als untergeordnete Komponenten
-        // zum jPanelRightWords hinzu
+        // 🗣️ Ich habe keine Ahnung, was das macht 😅. Ich habe die GUI mithilfe von
+        // 🗣️ NetBeans Scene Builder erstellt.
+        // 🗣️ Ich denke, dies ist nur für den Abstand des Textes innerhalb des Bereichs
+        // 🗣️ "Right Words".
+        // 🗣️ Ich denke dies fügt auch die Beschriftungen als untergeordnete Komponenten
+        // 🗣️ zum jPanelRightWords hinzu
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanelRightWords);
         jPanelRightWords.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -194,12 +195,12 @@ public class MyGUI extends JFrame {
         jLabelWrongWordsCount.setText(Integer.toString(myVars.getIntWrongWords())); // Set ammount of wrong words
 
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
-        // Ich habe keine Ahnung, was das macht 😅. Ich habe die GUI mithilfe von
-        // NetBeans Scene Builder erstellt.
-        // Ich denke, dies ist nur für den Abstand des Textes innerhalb des Bereichs
-        // "Wrong Words".
-        // Ich denke dies fügt auch die Beschriftungen als untergeordnete Komponenten
-        // zum jPanelWrongWords hinzu
+        // 🗣️ Ich habe keine Ahnung, was das macht 😅. Ich habe die GUI mithilfe von
+        // 🗣️ NetBeans Scene Builder erstellt.
+        // 🗣️ Ich denke, dies ist nur für den Abstand des Textes innerhalb des Bereichs
+        // 🗣️ "Wrong Words".
+        // 🗣️ Ich denke dies fügt auch die Beschriftungen als untergeordnete Komponenten
+        // 🗣️ zum jPanelWrongWords hinzu
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanelWrongWords);
         jPanelWrongWords.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -227,8 +228,7 @@ public class MyGUI extends JFrame {
         jRadioButton1_VoiceRecognition.setFont(new java.awt.Font("Unispace", 1, 12));
         jRadioButton1_VoiceRecognition.setForeground(MAIN_TEXT_COLOR); // Set text color
         jRadioButton1_VoiceRecognition.setText("Voice Recognition");
-        jRadioButton1_VoiceRecognition.setToolTipText(
-                "!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
+        jRadioButton1_VoiceRecognition.setToolTipText("!!ONLY WORKS WITH INTERNET CONNECTION!!\nSelected: Voice Recognition is on.\nDeselected: Voice Recognition is off.\nThis will use your microphone to analyze speech and convert it to text using Google API.");
         jRadioButton1_VoiceRecognition.setCursor(HAND_POINTER);
         jRadioButton1_VoiceRecognition.setSelected(myVars.isVoiceToggleSelected()); // Set state (selected/deselected).
         jRadioButton1_VoiceRecognition.setBorder(null);
@@ -273,8 +273,7 @@ public class MyGUI extends JFrame {
         // English to German Toggle
         buttonGroup2.add(jRadioButton2_EngToGer);
         jRadioButton2_EngToGer.setFont(new java.awt.Font("Unispace", 0, 12));
-        jRadioButton2_EngToGer.setSelected(!myVars.isGerToEngSelected()); // Read the state of the Toggle and set it to
-                                                                          // its opposite.
+        jRadioButton2_EngToGer.setSelected(!myVars.isGerToEngSelected()); // Read the state of the Toggle and set it to it's opposite.
         jRadioButton2_EngToGer.setText("English -> German");
         jRadioButton2_EngToGer.setBackground(SECONDARY_COLOR); // Set background color
         jRadioButton2_EngToGer.setForeground(MAIN_TEXT_COLOR); // Set text color
@@ -302,9 +301,9 @@ public class MyGUI extends JFrame {
         });
 
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
-        // Ich habe keine Ahnung, was das macht 😅. Code hier wurde von NetBeans Scene
-        // Builder erstellt als ich die GUI zum ersten Mal Erstellt habe.
-        // Ich denke, das legt das Layout für das linke Menüfeld fest.
+        // 🗣️ Ich habe keine Ahnung, was das macht 😅. Code hier wurde von NetBeans Scene
+        // 🗣️ Builder erstellt als ich die GUI zum ersten Mal Erstellt habe.
+        // 🗣️ Ich denke, das legt das Layout für das linke Menüfeld fest.
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelLeftSideMenu);
         jPanelLeftSideMenu.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -376,13 +375,13 @@ public class MyGUI extends JFrame {
         jTextPane_ToTranslate.setForeground(MAIN_TEXT_COLOR); // Set text color
         showNewVocab();
         jTextPane_ToTranslate.setBackground(SECONDARY_BUTTON_COLOR); // Set background color
-        jScrollPane1.setViewportView(jTextPane_ToTranslate);
-        jScrollPane1.setBorder(null); // Removes White Border
+        jScrollPane.setViewportView(jTextPane_ToTranslate);
+        jScrollPane.setBorder(null); // Removes White Border
 
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
-        // Ich habe keine Ahnung, was das macht 😅. Code hier wurde von NetBeans Scene
-        // Builder erstellt als ich die GUI zum ersten Mal Erstellt habe.
-        // Ich denke, das legt das Layout für das rechte Feld fest.
+        // 🗣️ Ich habe keine Ahnung, was das macht 😅. Code hier wurde von NetBeans Scene
+        // 🗣️ Builder erstellt als ich die GUI zum ersten Mal Erstellt habe.
+        // 🗣️ Ich denke, das legt das Layout für das rechte Feld fest.
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -390,7 +389,7 @@ public class MyGUI extends JFrame {
                         .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1)
+                                        .addComponent(jScrollPane)
                                         .addComponent(jLabel5))
                                 .addContainerGap()));
         jPanel4Layout.setVerticalGroup(
@@ -399,7 +398,7 @@ public class MyGUI extends JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216,
+                                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 216,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)));
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
@@ -414,22 +413,22 @@ public class MyGUI extends JFrame {
         jLabel2.setText("Translation:");
 
         // Translation Input Text Field
-        jTextField1.setFont(SECONDARY_FONT);
-        jTextField1.setForeground(MAIN_TEXT_COLOR); // Set text color
-        jTextField1.setBackground(SECONDARY_BUTTON_COLOR);
-        jTextField1.setText("Translation");
-        jTextField1.setBorder(null); // Removes White Border
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField.setFont(SECONDARY_FONT);
+        jTextField.setForeground(MAIN_TEXT_COLOR); // Set text color
+        jTextField.setBackground(SECONDARY_BUTTON_COLOR);
+        jTextField.setText("Translation");
+        jTextField.setBorder(null); // Removes White Border
+        jTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
-        // Ich habe keine Ahnung, was das macht 😅. Code hier wurde von NetBeans Scene
-        // Builder erstellt als ich die GUI zum ersten Mal Erstellt habe.
-        // Ich denke, das legt das Layout für die Unterkomponenten des rechtes Feld
-        // fest.
+        // 🗣️ Ich habe keine Ahnung, was das macht 😅. Code hier wurde von NetBeans Scene
+        // 🗣️ Builder erstellt als ich die GUI zum ersten Mal Erstellt habe.
+        // 🗣️ Ich denke, das legt das Layout für die Unterkomponenten des rechtes Feld
+        // 🗣️ fest.
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -437,7 +436,7 @@ public class MyGUI extends JFrame {
                         .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap()));
@@ -447,7 +446,7 @@ public class MyGUI extends JFrame {
                                 .addContainerGap(7, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+                                .addComponent(jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap()));
 
@@ -479,13 +478,15 @@ public class MyGUI extends JFrame {
                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         /*----------------------------------------------------------------------------------------------------------------------------------------*/
 
-        pack(); // Automatically resize GUI to fit components. Not necesaraly needed but ill
-                // leave it in just in case i decide to change the size of something later.
+         
+        /* Automatically resize GUI to fit components. Not necesaraly needed but ill
+        leave it in just in case i decide to change the size of something later. */
+        pack();
 
-        // Die Benutzeroberfläche in der Mitte des Bildschirms anzeigen
+        // 🗣️ Die Benutzeroberfläche in der Mitte des Bildschirms anzeigen
         setLocationRelativeTo(null);
 
-        // Die Benutzeroberfläche anzeigen
+        // 🗣️ Die Benutzeroberfläche anzeigen
         this.setVisible(true);
     }
 
@@ -543,14 +544,16 @@ public class MyGUI extends JFrame {
             }
         }
 
-        // Verhindert, dass man 2 Mal auf den Kippschalter klicken muss, um den
-        // Spracherkennungsvorgang erneut zu starten. Dies setzt den Toggle-Status
-        // zurück auf "nicht markiert".
+        // 🗣️ Verhindert, dass man 2 Mal auf den Kippschalter klicken muss, um den
+        // 🗣️ Spracherkennungsvorgang erneut zu starten. Dies setzt den Toggle-Status
+        // 🗣️ zurück auf "nicht markiert".
+        /* OLD CODE */
         // if (myVars.isVoiceToggleSelected()) {
         // jRadioButton1_VoiceRecognition.doClick();
         // }
         myVars.setVoiceToggleSelected(false);
         jRadioButton1_VoiceRecognition.setSelected(false);
+
         updateLabels();
         showNewVocab();
         config.save();
@@ -558,18 +561,23 @@ public class MyGUI extends JFrame {
 
     private void jButton3_AddWordActionPerformed(ActionEvent evt) {
         System.out.println("Add Words button clicked12!");
+        // 🗣️ Show UI
+        @SuppressWarnings("unused")
         AddWordsUI addWordsUI = new AddWordsUI();
     }
 
     private void jButton4_RemEditWordActionPerformed(ActionEvent evt) {
         System.out.println("Remove / Edit Word button clicked!");
+        // 🗣️ Show UI
+        @SuppressWarnings("unused")
         EditRemoveWordsUI editRemoveWordsUI = new EditRemoveWordsUI();
     }
 
+    // 🗣️ Benutzereingabe
     private void jTextField1ActionPerformed(ActionEvent evt) {
-        inputText = jTextField1.getText();
+        inputText = jTextField.getText();
         System.out.println("Text submited: " + inputText);
-        jTextField1.setText("");
+        jTextField.setText("");
         vocab.checkTranslation(inputText);
         updateLabels();
         showNewVocab();

@@ -6,25 +6,17 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 import handlers.Vocab;
 
 public class AddWordsUI extends JFrame {
-    private String[] columnNames = { "English", "German" };
     private Vocab vocab;
-    private DefaultTableModel model;
     private JTextField jTextFieldEng, jTextFieldGer;
     private String inputTextEng, inputTextGer;
-    private JTable table;
-
+  
     public AddWordsUI() {
         vocab = Vocab.getInstance();
-        // model = new DefaultTableModel(columnNames, 1);
-        // table = new JTable(model);
-        // add(table);
 
         // Window settings
         setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -40,7 +32,7 @@ public class AddWordsUI extends JFrame {
 
         // Translation Input Text Field For English
         jTextFieldEng = new JTextField();
-        jTextFieldEng.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
+        jTextFieldEng.setFont(new java.awt.Font("Unispace", 0, 12)); 
         jTextFieldEng.setText("English Vocab");
         jTextFieldEng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -48,7 +40,7 @@ public class AddWordsUI extends JFrame {
             }
         });
         jTextFieldEng.setSize(150, 80);
-        // Create Border. Code from BingAI(GPT4) but edited to fit my preferences
+        /* 🤖 Create Border. Code from BingAI(GPT4) but edited to fit my preferences */
         jTextFieldEng.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY),
                 BorderFactory.createEmptyBorder(0, 0, 0, 5)));
@@ -56,7 +48,7 @@ public class AddWordsUI extends JFrame {
 
         // Translation Input Text Field For German
         jTextFieldGer = new JTextField();
-        jTextFieldGer.setFont(new java.awt.Font("Unispace", 0, 12)); // NOI18N
+        jTextFieldGer.setFont(new java.awt.Font("Unispace", 0, 12)); 
         jTextFieldGer.setText("German Vocab");
         jTextFieldGer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -64,7 +56,7 @@ public class AddWordsUI extends JFrame {
             }
         });
         jTextFieldGer.setSize(100, 80);
-        // Create Border. Code from BingAI(GPT4) but edited to fit my preferences
+        /* 🤖 Create Border. Code from BingAI(GPT4) but edited to fit my preferences */
         jTextFieldGer.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY),
                 BorderFactory.createEmptyBorder(0, 0, 0, 5)));
