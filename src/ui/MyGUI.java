@@ -296,7 +296,7 @@ public class MyGUI extends JFrame {
         jRadioButton3_GerToEng.setFocusable(false);
         jRadioButton3_GerToEng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jRadioButton3_EngToGerActionPerformed(evt);
+                jRadioButton3_GerToEngActionPerformed(evt);
             }
         });
 
@@ -511,7 +511,7 @@ public class MyGUI extends JFrame {
         jTextPane_ToTranslate.setText(vocab.getRandomVocab());
     }
 
-    private void jRadioButton3_EngToGerActionPerformed(ActionEvent evt) {
+    private void jRadioButton3_GerToEngActionPerformed(ActionEvent evt) {
         System.out.println("GerToEng selected!");
         myVars.setGerToEngSelected(true);
         config.save();
@@ -520,11 +520,13 @@ public class MyGUI extends JFrame {
 
     private void jRadioButton1_VoiceRecognitionActionPerformed(ActionEvent evt) {
         myVars.setVoiceToggleSelected(!myVars.isVoiceToggleSelected());
-        System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
-        System.out.println(speechRecognition.getP()); // DEBUG Print - Check to see if Py program stopped
+        // System.out.println("Voice Recognition Selected: " + myVars.isVoiceToggleSelected());
+        // System.out.println(speechRecognition.getP()); // DEBUG Print - Check to see if Py program stopped
         if (myVars.isVoiceToggleSelected()) {
             if (myVars.isGerToEngSelected()) {
                 inputText = speechRecognition.startEngRecognizer();
+                // 🎸 Nächste if ist nicht unbedingt nötig aber ist gut zu haben - Andrei
+                // if (hasSpeechRecognitionSucceded()) von Andrei vor abgabe noch dazu gemacht - Andrei
                 if (hasSpeechRecognitionSucceded()) {
                     if (inputText.toLowerCase().contains(vocab.getTranslation().toLowerCase())) {
                         myVars.erhoeheRichtigeWorter();
@@ -534,6 +536,8 @@ public class MyGUI extends JFrame {
                 }
             } else {
                 inputText = speechRecognition.startGerRecognizer();
+                // 🎸 Nächste if ist nicht unbedingt nötig aber ist gut zu haben - Andrei
+                // if (hasSpeechRecognitionSucceded()) von Andrei vor abgabe noch dazu gemacht - Andrei
                 if (hasSpeechRecognitionSucceded()) {
                     if (inputText.toLowerCase().contains(vocab.getTranslation().toLowerCase())) {
                         myVars.erhoeheRichtigeWorter();
