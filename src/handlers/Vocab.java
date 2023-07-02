@@ -19,11 +19,11 @@ public class Vocab {
     private MyVars myVars = MyVars.getInstance();
 
     // English words
-    private String engVocabFile = "English.txt";
+    private String engVocabFile = "resources/txt/English.txt";
     private List<String> engVocabList;
 
     // German words
-    private String gerVocabFile = "German.txt";
+    private String gerVocabFile = "resources/txt/German.txt";
     private List<String> gerVocabList;
 
     // Random vocab

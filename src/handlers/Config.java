@@ -41,7 +41,7 @@ public class Config {
 
     public void save() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("resources/config.txt"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("resources/txt/config.txt"));
 
             // intRightWords
             bw.write(Integer.toString(variables.getIntRightWords()));
@@ -70,7 +70,7 @@ public class Config {
 
     public void load() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("resources/config.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("resources/txt/config.txt"));
 
             // intRightWords
             variables.setIntRightWords(Integer.parseInt(br.readLine()));

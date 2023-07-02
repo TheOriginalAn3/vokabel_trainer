@@ -585,7 +585,7 @@ public class MyGUI extends JFrame {
         vocab.checkTranslation(inputText);
         updateLabels();
         showNewVocab();
-
+        config.save();
     }
 
     private void showNewVocab() {

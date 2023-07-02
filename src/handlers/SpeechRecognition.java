@@ -55,7 +55,7 @@ public class SpeechRecognition {
         System.out.println("Starting English Recognizer");
         // start new process
         try {
-            pb = new ProcessBuilder("python", "EngPythonRecognizer.py");
+            pb = new ProcessBuilder("python", "resources/EngPythonRecognizer.py");
             p = pb.start();
             getStringFromPython();
         } catch (Exception a) {
@@ -69,7 +69,7 @@ public class SpeechRecognition {
         System.out.println("Starting German Recognizer");
         // start new process
         try {
-            pb = new ProcessBuilder("python", "GerPythonRecognizer.py");
+            pb = new ProcessBuilder("python", "resources/GerPythonRecognizer.py");
             p = pb.start();
             getStringFromPython();
         } catch (Exception e) {
